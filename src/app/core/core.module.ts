@@ -6,6 +6,7 @@ import { MaterialModule } from '../modules/material.module';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthUserService } from './services/auth-user.service';
 
 @NgModule({
    declarations: [
@@ -13,7 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
       DashboardComponent
   ],
    imports: [ReactiveFormsModule, HttpClientModule, MaterialModule, SharedModule],
-   providers: [],
+   providers: [AuthUserService],
    exports: [LoginComponent]
 })
 export class CoreModule {}

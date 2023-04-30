@@ -12,7 +12,7 @@ const headers = {
 @Injectable({
    providedIn: 'root',
 })
-export class UserService {
+export class AuthUserService {
    url =envoirment.apiUrl;
 
    constructor(private http: HttpClient) {}

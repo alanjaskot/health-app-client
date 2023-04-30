@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ITokenModel } from '../../models/token.model';
-import { UserService } from '../../services/auth-user.service';
+import { AuthUserService } from '../../services/auth-user.service';
 import { LoginForm } from '../../forms/login.form';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnDestroy {
   form: LoginForm = new LoginForm();
   subscription = new Subscription();
 
-  constructor(private service: UserService, private router: Router) {}
+  constructor(private service: AuthUserService, private router: Router) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
