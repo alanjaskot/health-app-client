@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UiTextInputComponent } from "./components/ui-text-input/ui-text-input.component";
 import { MaterialModule } from "../modules/material.module";
+import { UiButtonComponent } from './components/ui-button/ui-button.component';
 
 @NgModule({
     imports: [
@@ -10,10 +11,12 @@ import { MaterialModule } from "../modules/material.module";
         ReactiveFormsModule
     ],
     declarations: [
-        UiTextInputComponent
+        UiTextInputComponent,
+        UiButtonComponent
     ],
     exports: [
-        UiTextInputComponent
+        UiTextInputComponent,
+        UiButtonComponent
     ]
 })
 
