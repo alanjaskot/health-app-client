@@ -11,7 +11,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnDestroy {
-  token: ITokenModel = { type: '', token: ''};
   form: LoginForm = new LoginForm();
   subscription = new Subscription();
 
@@ -37,7 +36,7 @@ export class LoginComponent implements OnDestroy {
     this.subscription.add(
       this.service.login(this.form.value.login, this.form.value.password)
         .subscribe((token: ITokenModel) => {
-        this.token = token;
+        this.service.setAuthUserData(token.type, token.token);
       })
     );
   }
