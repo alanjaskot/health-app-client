@@ -45,4 +45,11 @@ export class AuthUserService {
       this.token = token;
       this.isLoggedIn = true;
    }
+
+   getAuthUserData(): ITokenModel {
+      return {
+         token: this.token, 
+         type: this.type
+      }; 
+   }
 }
