@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ui-button',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./ui-button.component.css']
 })
 export class UiButtonComponent {
-
+  @Input() text = 'button';
+  @Input() color: 'primary' | 'warn' | 'accent' = 'primary';
+  @Input() disabled = false;
+  @Input() buttonType: 'raised' | 'mat' | 'fab' | 'icon-button' = 'raised';
+  @Input() icon?: string;
+  @Input() iconColor?: string;  
 }
