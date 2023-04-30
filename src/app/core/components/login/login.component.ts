@@ -1,22 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { ITokenModel } from '../../models/token.model';
 import { UserService } from '../../services/auth-user.service';
+import { LoginForm } from '../../forms/login.form';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  token: ITokenModel = {token: '', type: ''};
+export class LoginComponent {
+  token: ITokenModel = { type: '', token: ''};
+  form: LoginForm = new LoginForm();
+  subscription = new Subscription();
 
-  constructor(private service: UserService) {}
+  constructor(private service: UserService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.service.login('admin', '123').subscribe((respToken: ITokenModel) => {
-      this.token = respToken;
-      console.log(this.token)
-    })
+  login(): void {
+    if (!this.form.valid) {
+      return;
+    }
+      
+    this.requestLogin();
   }
 
+  private requestLogin(): void {
+    this.subscription = this.service.login(this.form.value.login, this.form.value.password)
+                                    .subscribe((token: ITokenModel) => {
+                                      this.token = token;
+                                    });
+  }
 }
