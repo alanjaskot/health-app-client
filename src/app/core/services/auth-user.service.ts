@@ -5,13 +5,15 @@ import { envoirment } from 'src/environments/envoirment.dev';
 import { ITokenModel } from '../models/token.model';
 import { IUserAuthModel } from '../models/user-auth.model';
 
-const headers = { 'content-type': 'application/json' };
+const headers = { 
+   'content-type': 'application/json',
+};
 
 @Injectable({
    providedIn: 'root',
 })
 export class UserService {
-   url = `${envoirment.apiUrl}/auth`;
+   url =envoirment.apiUrl;
 
    constructor(private http: HttpClient) {}
 
@@ -19,7 +21,7 @@ export class UserService {
       const user: IUserAuthModel = { 
          login: login, 
          password: password};
-      return this.http.post<ITokenModel>(`${this.url}/login`, user, { headers });
+      return this.http.post<ITokenModel>(`${this.url}/auth/login`, user, { headers });
    }
 
    logout() {
