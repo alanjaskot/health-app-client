@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/auth-user.service';
+import { Router } from '@angular/router';
+import { AuthUserService } from '../../services/auth-user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,12 +8,15 @@ import { UserService } from '../../services/auth-user.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  isLoging: boolean;
+  isLoggedIn = false;
 
-  constructor(private authService: UserService) {}
+  constructor(private authService: AuthUserService, private router: Router) {}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.isLoggedIn = this.authService.isLoggedIn
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
   }
 
 }
