@@ -1,1 +1,22 @@
-<p>ui-button works!</p>
+<ng-container *ngSwitch="buttonType">
+    <ng-container *ngSwitchCase="'raised'">
+        <button mat-raised-button [color]="color" [disabled]="disabled">
+            <mat-icon *ngIf="icon" [color]="iconColor"> {{ icon }} </mat-icon>
+            {{ text }}
+        </button>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'mat'">
+        <button mat-button [color]="color" [disabled]="disabled">
+            <mat-icon *ngIf="icon" [color]="iconColor"> {{ icon }} </mat-icon>
+            {{ text }}
+        </button>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'fab'">
+        <button mat-fab [color]="color" [disabled]="disabled">
+            <mat-icon *ngIf="icon" [color]="iconColor"> {{ icon }} </mat-icon>
+            {{ text }}
+        </button>
+    </ng-container>
+</ng-container>
