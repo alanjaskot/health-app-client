@@ -1,4 +1,4 @@
-<ng-container *ngSwitch="buttonType">
+<ng-container [ngSwitch]="buttonType">
     <ng-container *ngSwitchCase="'raised'">
         <button mat-raised-button [color]="color" [disabled]="disabled">
             <mat-icon *ngIf="icon" [color]="iconColor"> {{ icon }} </mat-icon>

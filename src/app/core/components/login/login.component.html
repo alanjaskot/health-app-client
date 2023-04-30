@@ -15,16 +15,16 @@
                 [required]="true"
                 ></app-ui-text-input>
             </p>
-            <app-ui-button 
-            text="login"
-            (click)="login()"
-            ></app-ui-button>
-            <a href="google.com">
-                <app-ui-button text="cancel"></app-ui-button>
-            </a>
+            <p>
+                <app-ui-button 
+                text="login"
+                (click)="login()"
+                ></app-ui-button>
+                <app-ui-button 
+                text="cancel"
+                (click)="watchMems()"
+                ></app-ui-button>
+            </p>
         </form>
     </mat-card-content>
 </mat-card>
-
-{{ token.type }}
-{{ token.token }}

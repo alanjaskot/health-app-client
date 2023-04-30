@@ -25,6 +25,10 @@ export class LoginComponent {
     this.requestLogin();
   }
 
+  watchMems(): void {
+    window.location.href = 'http://jbzd.com.pl';
+  }
+
   private requestLogin(): void {
     this.subscription = this.service.login(this.form.value.login, this.form.value.password)
                                     .subscribe((token: ITokenModel) => {
