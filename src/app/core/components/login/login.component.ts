@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ITokenModel } from '../../models/token.model';
 import { UserService } from '../../services/auth-user.service';
 import { LoginForm } from '../../forms/login.form';
@@ -10,12 +10,16 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   token: ITokenModel = { type: '', token: ''};
   form: LoginForm = new LoginForm();
   subscription = new Subscription();
 
   constructor(private service: UserService, private router: Router) {}
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   login(): void {
     if (!this.form.valid) {
@@ -30,9 +34,11 @@ export class LoginComponent {
   }
 
   private requestLogin(): void {
-    this.subscription = this.service.login(this.form.value.login, this.form.value.password)
-                                    .subscribe((token: ITokenModel) => {
-                                      this.token = token;
-                                    });
+    this.subscription.add(
+      this.service.login(this.form.value.login, this.form.value.password)
+        .subscribe((token: ITokenModel) => {
+        this.token = token;
+      })
+    );
   }
 }
