@@ -14,6 +14,8 @@ const headers = {
 })
 export class AuthUserService {
    url =envoirment.apiUrl;
+   type: string;
+   token: string;
 
    constructor(private http: HttpClient) {}
 
@@ -35,5 +37,10 @@ export class AuthUserService {
       };
 
       return this.http.post<boolean>(`${this.url}/register`, user, { headers })
+   }
+
+   setAuthUserData(type, token): void {
+      this.type = type;
+      this.token = token;
    }
 }
