@@ -15,6 +15,6 @@ import { AuthUserService } from './services/auth-user.service';
   ],
    imports: [ReactiveFormsModule, HttpClientModule, MaterialModule, SharedModule],
    providers: [AuthUserService],
-   exports: [LoginComponent]
+   exports: [DashboardComponent, LoginComponent]
 })
 export class CoreModule {}
