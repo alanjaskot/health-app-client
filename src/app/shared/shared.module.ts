@@ -11,6 +11,9 @@ import { MaterialModule } from "../modules/material.module";
     ],
     declarations: [
         UiTextInputComponent
+    ],
+    exports: [
+        UiTextInputComponent
     ]
 })
 
