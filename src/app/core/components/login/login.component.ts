@@ -35,8 +35,10 @@ export class LoginComponent implements OnDestroy {
   private requestLogin(): void {
     this.subscription.add(
       this.service.login(this.form.value.login, this.form.value.password)
-        .subscribe((token: ITokenModel) => {
-        this.service.setAuthUserData(token.type, token.token);
+        .subscribe((token: any) => {
+          console.log('token typeof', token);
+          this.service.setAuthUserData(token.result.type, token.result.token);
+          this.router.navigate(['/']);
       })
     );
   }

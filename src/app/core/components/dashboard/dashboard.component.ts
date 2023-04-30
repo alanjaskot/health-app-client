@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   constructor(private authService: AuthUserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn
+    this.isLoggedIn = this.authService.isLoggedIn;
     if (!this.isLoggedIn) {
       this.router.navigate(['/login']);
     }

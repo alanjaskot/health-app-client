@@ -43,6 +43,6 @@ export class AuthUserService {
    setAuthUserData(type, token): void {
       this.type = type;
       this.token = token;
-
+      this.isLoggedIn = true;
    }
 }
