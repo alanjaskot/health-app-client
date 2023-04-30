@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../modules/material.module';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
    declarations: [
-      LoginComponent
+      LoginComponent,
+      DashboardComponent
   ],
    imports: [ReactiveFormsModule, HttpClientModule, MaterialModule, SharedModule],
    providers: [],
