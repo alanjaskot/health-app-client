@@ -16,6 +16,7 @@ export class AuthUserService {
    url =envoirment.apiUrl;
    type: string;
    token: string;
+   isLoggedIn = false;
 
    constructor(private http: HttpClient) {}
 
@@ -42,5 +43,6 @@ export class AuthUserService {
    setAuthUserData(type, token): void {
       this.type = type;
       this.token = token;
+
    }
 }
