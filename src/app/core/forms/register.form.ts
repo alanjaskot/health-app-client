@@ -1,6 +1,11 @@
-import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 
-export class RegisterForm extends UntypedFormBuilder {
+export class RegisterForm extends UntypedFormGroup {
   readonly userName = this.get('userName') as UntypedFormControl;
   readonly password = this.get('password') as UntypedFormControl;
   readonly confirmPassword = this.get('confirmPassword') as UntypedFormControl;
@@ -8,9 +13,9 @@ export class RegisterForm extends UntypedFormBuilder {
   constructor(readonly fb: UntypedFormBuilder = new UntypedFormBuilder()) {
     super(
       fb.group({
-        login: ['', Validators.required],
-        password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
+        userName: ['', Validators.required],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
       }).controls
     );
   }
