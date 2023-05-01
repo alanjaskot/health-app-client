@@ -1,5 +1,4 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ITokenModel } from '../../models/token.model';
 import { AuthUserService } from '../../services/auth-user.service';
 import { LoginForm } from '../../forms/login.form';
 import { Router } from '@angular/router';
@@ -36,7 +35,6 @@ export class LoginComponent implements OnDestroy {
     this.subscription.add(
       this.service.login(this.form.value.login, this.form.value.password)
         .subscribe((token: any) => {
-          console.log('token typeof', token);
           this.service.setAuthUserData(token.result.type, token.result.token);
           this.router.navigate(['/']);
       })
