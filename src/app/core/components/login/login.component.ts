@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnDestroy {
   form: LoginForm = new LoginForm();
@@ -23,7 +23,7 @@ export class LoginComponent implements OnDestroy {
     if (!this.form.valid) {
       return;
     }
-      
+
     this.requestLogin();
   }
 
@@ -33,11 +33,12 @@ export class LoginComponent implements OnDestroy {
 
   private requestLogin(): void {
     this.subscription.add(
-      this.service.login(this.form.value.login, this.form.value.password)
+      this.service
+        .login(this.form.value.login, this.form.value.password)
         .subscribe((token: any) => {
           this.service.setAuthUserData(token.result.type, token.result.token);
           this.router.navigate(['/']);
-      })
+        })
     );
   }
 }
