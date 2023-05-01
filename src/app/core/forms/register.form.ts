@@ -14,8 +14,8 @@ export class RegisterForm extends UntypedFormGroup {
     super(
       fb.group({
         userName: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [Validators.required, Validators.min(6)]],
+        confirmPassword: ['', [Validators.required, Validators.min(6)]],
       }).controls
     );
   }

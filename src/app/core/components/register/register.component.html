@@ -11,23 +11,27 @@
             <p>
                 <app-ui-text-input
                 label="password"
+                [type]="'password'"
                 [control]="form.password"
                 [required]="true"
                 ></app-ui-text-input>
             </p>
             <p>
                 <app-ui-text-input
-                label="password"
-                [control]="form.password"
+                label="confirm password"
+                [type]="'password'"
+                [control]="form.confirmPassword"
                 [required]="true"
                 ></app-ui-text-input>
             </p>
             <p>
                 <app-ui-button 
-                text="login"
+                text="register"
+                color="accent"
                 (click)="registerUser()"
                 ></app-ui-button>
-                <app-ui-button 
+                <app-ui-button
+                color="warn"
                 text="cancel"
                 routerLink="/"
                 ></app-ui-button>

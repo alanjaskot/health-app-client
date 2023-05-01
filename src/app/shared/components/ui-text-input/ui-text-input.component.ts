@@ -11,5 +11,5 @@ export class UiTextInputComponent {
   @Input() control: UntypedFormControl;
   @Input() placeholder?: string;
   @Input() required = false;
-  @Input() type: 'text' | 'number' = 'text';
+  @Input() type: 'text' | 'number' | 'email' | 'password' = 'text';
 }

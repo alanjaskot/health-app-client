@@ -18,8 +18,9 @@ export class RegisterComponent {
       return;
     }
 
-    if (this.form.password.value !== this.form.confirmPassword.value) {
+    if (this.form.password.value != this.form.confirmPassword.value) {
       this.toastr.error('passwords are not the same');
+      return;
     }
 
     this.userService.register(this.form.userName.value, this.form.password.value);
