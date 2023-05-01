@@ -1,7 +1,9 @@
 {
     "singleQuote": true,
+    "tabWidth": 2,
     "bracketSpacing": true,
     "printWidth": 100,
     "prettier.cssEnable": ["css"],
-    "endOfLine": "auto"
+    "endOfLine": "auto",
+    "semi": true
   }

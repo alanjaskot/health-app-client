@@ -4,7 +4,7 @@ import { UntypedFormControl } from '@angular/forms';
 @Component({
   selector: 'app-ui-text-input',
   templateUrl: './ui-text-input.component.html',
-  styleUrls: ['./ui-text-input.component.css']
+  styleUrls: ['./ui-text-input.component.css'],
 })
 export class UiTextInputComponent {
   @Input() label = '';
@@ -12,5 +12,4 @@ export class UiTextInputComponent {
   @Input() placeholder?: string;
   @Input() required = false;
   @Input() type: 'text' | 'number' = 'text';
-
 }

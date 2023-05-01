@@ -9,12 +9,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthUserService } from './services/auth-user.service';
 
 @NgModule({
-   declarations: [
-      LoginComponent,
-      DashboardComponent
-  ],
-   imports: [ReactiveFormsModule, HttpClientModule, MaterialModule, SharedModule],
-   providers: [AuthUserService],
-   exports: [DashboardComponent, LoginComponent]
+  declarations: [DashboardComponent, LoginComponent],
+  imports: [HttpClientModule, MaterialModule, ReactiveFormsModule, SharedModule],
+  providers: [AuthUserService],
+  exports: [DashboardComponent, LoginComponent],
 })
 export class CoreModule {}

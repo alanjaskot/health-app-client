@@ -8,10 +8,16 @@ import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
-
 @NgModule({
   declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule, CoreModule, MaterialModule, SharedModule],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    CoreModule,
+    MaterialModule,
+    SharedModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

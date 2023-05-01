@@ -1,4 +1,4 @@
 export interface ITokenModel {
-    type: string;
-    token: string;
+  type: string;
+  token: string;
 }

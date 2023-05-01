@@ -1,5 +1,10 @@
 {
   "root": true,
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jasmine": true
+  },
   "ignorePatterns": [
     "projects/**/*"
   ],
@@ -12,7 +17,8 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -29,6 +35,67 @@
             "type": "element",
             "prefix": "app",
             "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/contextual-decorator": ["error"],
+        "@angular-eslint/contextual-lifecycle": ["error"],
+        "@angular-eslint/no-attribute-decorator": ["error"],
+        "@angular-eslint/no-conflicting-lifecycle": ["error"],
+        "@angular-eslint/no-empty-lifecycle-method": ["error"],
+        "@angular-eslint/no-host-metadata-property": ["error"],
+        "@angular-eslint/no-input-prefix": ["error"],
+        "@angular-eslint/no-input-rename": ["error"],
+        "@angular-eslint/no-inputs-metadata-property": ["error"],
+        "@angular-eslint/no-output-native": ["error"],
+        "@angular-eslint/no-output-on-prefix": ["error"],
+        "@angular-eslint/no-output-rename": ["error"],
+        "@angular-eslint/no-outputs-metadata-property": ["error"],
+        "@angular-eslint/no-pipe-impure": ["error"],
+        "@angular-eslint/no-queries-metadata-property": ["error"],
+        "@angular-eslint/relative-url-prefix": ["error"],
+        "@angular-eslint/sort-ngmodule-metadata-arrays": ["error"],
+        "@angular-eslint/use-component-selector": ["error"],
+        "@angular-eslint/use-component-view-encapsulation": ["error"],
+        "@angular-eslint/use-injectable-provided-in": ["warn"],
+        "@angular-eslint/use-lifecycle-interface": ["error"],
+        "@angular-eslint/use-pipe-transform-interface": ["error"],
+        "no-shadow": ["warn"],
+        "@angular-eslint/prefer-output-readonly": ["warn"],
+        "@angular-eslint/no-forward-ref": ["warn"],
+        "@angular-eslint/no-lifecycle-call": ["warn"],
+        "@angular-eslint/pipe-prefix": ["error"],
+        "@angular-eslint/directive-class-suffix": ["error"],
+        "@angular-eslint/component-class-suffix": ["error"],
+        "@angular-eslint/prefer-on-push-component-change-detection": ["off"],
+        "no-console": "warn",
+        "no-param-reassign": "warn",
+        "lines-between-class-members": "off",
+        "import/no-unresolved": "off",
+        "func-names": "off",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "no-plusplus": "off",
+        "import/extensions": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-useless-constructor": ["off"],
+        "no-useless-constructor": "off",
+        "no-useless-escape": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "no-empty-function": [
+          "warn",
+          {
+            "allow": ["constructors", "arrowFunctions"]
+          }
+        ],
+        "no-magic-numbers": [
+          "error",
+          {
+            "ignoreArrayIndexes": true,
+            "ignoreDefaultValues": true,
+            "detectObjects": true,
+            "ignore": [
+              -60, -24, -10, -2, -1, 0, 1, 2, 3, 4, 8, 10, 24, 32, 60, 64, 100, 200, 250, 1000, 1200
+            ]
           }
         ]
       }
