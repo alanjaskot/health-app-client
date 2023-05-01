@@ -4,10 +4,11 @@ import { UiTextInputComponent } from './components/ui-text-input/ui-text-input.c
 import { MaterialModule } from '../modules/material.module';
 import { UiButtonComponent } from './components/ui-button/ui-button.component';
 import { CommonModule } from '@angular/common';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, MaterialModule, ReactiveFormsModule],
-  declarations: [UiButtonComponent, UiTextInputComponent],
-  exports: [UiButtonComponent, UiTextInputComponent],
+  declarations: [ToastComponent, UiButtonComponent, UiTextInputComponent],
+  exports: [ToastComponent, UiButtonComponent, UiTextInputComponent],
 })
 export class SharedModule {}
