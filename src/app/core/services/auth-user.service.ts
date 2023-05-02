@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { envoirment } from 'src/environments/envoirment.dev';
 import { ITokenModel } from '../models/token.model';
-import { IUserAuthModel } from '../models/user-auth.model';
+import { ILoginModel } from '../models/login.model';
+import { IRegisterModel } from '../models/register.model';
 
 const headers = {
   'content-type': 'application/json',
@@ -13,15 +14,15 @@ const headers = {
   providedIn: 'root',
 })
 export class AuthUserService {
+  public isLoggedIn = false;
   url = envoirment.apiUrl;
   type: string;
   token: string;
-  isLoggedIn = false;
 
   constructor(private http: HttpClient) {}
 
   login(login: string, password: string): Observable<ITokenModel> {
-    const user: IUserAuthModel = {
+    const user: ILoginModel = {
       login: login,
       password: password,
     };
@@ -32,13 +33,12 @@ export class AuthUserService {
     return this.http.post(`${envoirment.apiUrl}/logout`, true, { headers });
   }
 
-  register(userName: string, password: string): Observable<boolean> {
-    const user: IUserAuthModel = {
+  register(userName: string, password: string): void {
+    const user: IRegisterModel = {
       userName: userName,
       password: password,
     };
-
-    return this.http.post<boolean>(`${this.url}/register`, user, { headers });
+    this.http.post(`${this.url}/registration`, user, { headers });
   }
 
   setAuthUserData(type, token): void {
@@ -47,7 +47,7 @@ export class AuthUserService {
     this.isLoggedIn = true;
   }
 
-  getAuthUserData(): ITokenModel {
+  public getAuthUserData(): ITokenModel {
     return {
       token: this.token,
       type: this.type,
