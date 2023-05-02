@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { envoirment } from 'src/environments/envoirment.dev';
@@ -6,8 +6,11 @@ import { ITokenModel } from '../models/token.model';
 import { ILoginModel } from '../models/login.model';
 import { IRegisterModel } from '../models/register.model';
 
-const headers = {
-  'content-type': 'application/json',
+const httpOptions = {
+  headers: new HttpHeaders({
+    'content-type': 'application/json',
+  }),
+  params: new HttpParams(),
 };
 
 @Injectable({
@@ -26,11 +29,11 @@ export class AuthUserService {
       login: login,
       password: password,
     };
-    return this.http.post<ITokenModel>(`${this.url}/auth/login`, user, { headers });
+    return this.http.post<ITokenModel>(`${this.url}/auth/login`, user, httpOptions);
   }
 
   logout() {
-    return this.http.post(`${envoirment.apiUrl}/logout`, true, { headers });
+    return this.http.post(`${envoirment.apiUrl}/logout`, true, httpOptions);
   }
 
   register(userName: string, password: string): void {
@@ -38,7 +41,7 @@ export class AuthUserService {
       userName: userName,
       password: password,
     };
-    this.http.post(`${this.url}/registration`, user, { headers });
+    this.http.post(`${this.url}/auth/registration`, user, httpOptions);
   }
 
   setAuthUserData(type, token): void {
