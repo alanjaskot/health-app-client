@@ -9,6 +9,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegisterComponent },
   { path: '**', component: DashboardComponent },
+  {
+    path: 'medicine',
+    loadChildren: () => import('./medicines/medicine.module').then((m) => m.MedicineModule),
+  },
 ];
 
 @NgModule({
