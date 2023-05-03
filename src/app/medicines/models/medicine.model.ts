@@ -1,10 +1,9 @@
 export interface IMedicineModel {
-  id?: string;
+  id: string;
   name: string;
   dose: number;
   unit: string;
-  medicalDosage: number;
+  medicalDosage?: number;
   created?: Date;
   updated?: Date;
-  isDeleted?: boolean;
 }

@@ -7,9 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MedicineComponent } from './medicine.component';
 import { MedicineRoutingModule } from './medicine-router.module';
 import { ListMedicineComponent } from './components/user/list-medicine/list-medicine.component';
+import { AddEditDeleteMedicineComponent } from './components/user/add-edit-delete-medicine/add-edit-delete-medicine.component';
 
 @NgModule({
-  declarations: [ListMedicineComponent, MedicineComponent],
+  declarations: [AddEditDeleteMedicineComponent, ListMedicineComponent, MedicineComponent],
   imports: [
     CommonModule,
     CoreModule,
