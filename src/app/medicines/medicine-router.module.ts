@@ -10,8 +10,7 @@ const routes: Routes = [
     component: MedicineComponent,
     children: [
       { path: 'list', component: ListMedicineComponent },
-      { path: 'new', component: AddEditDeleteMedicineComponent },
-      { path: 'edit/:id', component: AddEditDeleteMedicineComponent },
+      { path: ':id', component: AddEditDeleteMedicineComponent },
     ],
   },
 ];
