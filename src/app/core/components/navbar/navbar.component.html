@@ -1,11 +1,9 @@
 <div *ngIf="!isLoggedIn; else loggedIn">
-    <app-ui-button [text]="'login'" routerLink="/login"></app-ui-button>
+    <app-ui-button [text]="'login'" routerLink="['/login']"></app-ui-button>
 </div>
 
 <ng-template #loggedIn>
     <app-ui-button [text]="'user'"></app-ui-button>
 </ng-template>
-<div>
-    {{ user.token }}
-</div>
+
     

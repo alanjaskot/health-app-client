@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AuthUserService } from '../../services/auth-user.service';
+import { AuthService } from '../../services/auth.service';
 import { LoginForm } from '../../forms/login.form';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthUserService } from '../../services/auth-user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent implements OnDestroy {
   form: LoginForm = new LoginForm();
   subscription = new Subscription();
 
-  constructor(private service: AuthUserService, private router: Router) {}
+  constructor(
+    private service: AuthUserService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -36,7 +41,8 @@ export class LoginComponent implements OnDestroy {
       this.service
         .login(this.form.value.login, this.form.value.password)
         .subscribe((token: any) => {
-          this.service.setAuthUserData(token.result.type, token.result.token);
+          this.authService.setType(token.result.type);
+          this.authService.setToken(token.result.token);
           this.router.navigate(['/']);
         })
     );

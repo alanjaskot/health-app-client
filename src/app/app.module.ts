@@ -8,6 +8,7 @@ import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
+import { authInterceptorProviders } from './core/services/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-center-center',
     }),
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

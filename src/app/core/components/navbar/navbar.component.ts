@@ -9,12 +9,10 @@ import { ITokenModel } from '../../models/token.model';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
-  user: ITokenModel;
 
   constructor(private authService: AuthUserService) {}
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn;
-    this.user = this.authService.getAuthUserData();
   }
 }

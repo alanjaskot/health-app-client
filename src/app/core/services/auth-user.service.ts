@@ -43,17 +43,4 @@ export class AuthUserService {
     };
     this.http.post(`${this.url}/auth/registration`, user, httpOptions);
   }
-
-  setAuthUserData(type, token): void {
-    this.type = type;
-    this.token = token;
-    this.isLoggedIn = true;
-  }
-
-  public getAuthUserData(): ITokenModel {
-    return {
-      token: this.token,
-      type: this.type,
-    };
-  }
 }

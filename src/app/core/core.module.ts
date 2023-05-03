@@ -10,11 +10,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthUserService } from './services/auth-user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [DashboardComponent, LoginComponent, NavbarComponent, RegisterComponent],
   imports: [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule, SharedModule],
-  providers: [AuthUserService],
+  providers: [AuthService, AuthUserService],
   exports: [DashboardComponent, LoginComponent, NavbarComponent],
 })
 export class CoreModule {}
