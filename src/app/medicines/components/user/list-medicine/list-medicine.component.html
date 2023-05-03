@@ -1,5 +1,39 @@
-<app-shared-table 
-    [displayingColumns]="displayingColumns" 
-    [dataTable]="getAllMedicines$ | async" 
-    [urlForRow]="'medicine/'"
-></app-shared-table>
+<table mat-table [dataSource]="getAllMedicines$ | async">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dose">
+        <th mat-header-cell *matHeaderCellDef> Dose </th>
+        <td mat-cell *matCellDef="let element"> {{element.dose}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="unit">
+        <th mat-header-cell *matHeaderCellDef> Unit </th>
+        <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="medicalDosage">
+        <th mat-header-cell *matHeaderCellDef> MedicalDosage </th>
+        <td mat-cell *matCellDef="let element"> {{element.medicalDosage}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> MedicalDosage </th>
+        <td mat-cell *matCellDef="let element"> {{element.created}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef> MedicalDosage </th>
+        <td mat-cell *matCellDef="let element"> {{element.updated}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayingColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayingColumns;"></tr>
+</table>
