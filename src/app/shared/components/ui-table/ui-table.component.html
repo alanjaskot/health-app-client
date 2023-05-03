@@ -1,8 +1,12 @@
 <table mat-table [dataSource]="dataTable">
-    <div *ngFor="let columnName of displayingColumns; let i = index">
-        <ng-container matColumnDef="columnName">
+    <div >
+        <ng-container 
+            matColumnDef="{{columnName}}"
+            *ngFor="let columnName of displayingColumns; let i = index">
             <th mat-header-cell *matHeaderCellDef>{{ columnName }}</th>
-            <td mat-cell *matCellDef="let element">{{ element[i] }}</td>
+            <td mat-cell *matCellDef="let element">
+                <div *ngFor="let singleElement of element.columnName"> {{ singleElement }} </div>
+            </td>
         </ng-container>
     </div>
 </table>
