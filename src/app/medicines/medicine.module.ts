@@ -6,9 +6,10 @@ import { MaterialModule } from '../modules/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MedicineComponent } from './medicine.component';
 import { MedicineRoutingModule } from './medicine-router.module';
+import { ListMedicineComponent } from './components/user/list-medicine/list-medicine.component';
 
 @NgModule({
-  declarations: [MedicineComponent],
+  declarations: [ListMedicineComponent, MedicineComponent],
   imports: [
     CommonModule,
     CoreModule,
