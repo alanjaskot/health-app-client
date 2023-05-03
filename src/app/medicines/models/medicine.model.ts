@@ -6,4 +6,5 @@ export interface IMedicineModel {
   medicalDosage?: number;
   created?: Date;
   updated?: Date;
+  isDeleted?: boolean;
 }
