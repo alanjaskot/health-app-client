@@ -18,29 +18,31 @@ const httpOptions = {
 })
 export class AuthUserService {
   public isLoggedIn = false;
-  url = envoirment.apiUrl;
   type: string;
   token: string;
 
   constructor(private http: HttpClient) {}
 
   login(login: string, password: string): Observable<ITokenModel> {
+    const url = `${envoirment.apiUrl}/auth/login`;
     const user: ILoginModel = {
       login: login,
       password: password,
     };
-    return this.http.post<ITokenModel>(`${this.url}/auth/login`, user, httpOptions);
+    return this.http.post<ITokenModel>(url, user, httpOptions);
   }
 
   logout() {
-    return this.http.post(`${envoirment.apiUrl}/logout`, true, httpOptions);
+    const url = `${envoirment.apiUrl}/auth/logout`;
+    return this.http.post(url, true, httpOptions);
   }
 
   register(userName: string, password: string): void {
+    const url = `${envoirment.apiUrl}/auth/registration`;
     const user: IRegisterModel = {
       userName: userName,
       password: password,
     };
-    this.http.post(`${this.url}/auth/registration`, user, httpOptions);
+    this.http.post(url, user, httpOptions);
   }
 }
