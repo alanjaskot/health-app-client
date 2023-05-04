@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import { authInterceptorProviders } from './core/services/auth.interceptor';
 import { MedicineState } from './medicines/state/medicine.state';
+import { envoirment } from 'src/environments/envoirment.dev';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,9 @@ import { MedicineState } from './medicines/state/medicine.state';
     CoreModule,
     MaterialModule,
     SharedModule,
-    NgxsModule.forFeature([MedicineState]),
+    NgxsModule.forRoot([MedicineState], {
+      developmentMode: !envoirment.production,
+    }),
     ToastrModule.forRoot({
       closeButton: true,
       timeOut: 2000, // 2 seconds
