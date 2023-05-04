@@ -32,9 +32,15 @@
                 ></app-ui-text-input>
             </p>
             <p>
-                <app-ui-button 
-                text="add medicine"
+                <app-ui-button
+                text="save medicine"
                 (click)="saveMedicine()"
+                ></app-ui-button>
+                <app-ui-button
+                *ngIf="isEditing"
+                [color]="'warn'"
+                text="delete medicine"
+                (click)="deleteMedicine()"
                 ></app-ui-button>
                 <app-ui-button 
                 text="cancel"

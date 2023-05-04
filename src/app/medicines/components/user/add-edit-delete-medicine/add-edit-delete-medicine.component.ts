@@ -6,6 +6,7 @@ import { MedicineForm } from 'src/app/medicines/form/medicine.form';
 import { IMedicineModel } from 'src/app/medicines/models/medicine.model';
 import {
   AddMedicine,
+  DeleteMedicine,
   LoadMedicineById,
   UpdateMedicine,
 } from 'src/app/medicines/state/medicine.actions';
@@ -18,10 +19,10 @@ import { MedicineState } from 'src/app/medicines/state/medicine.state';
 })
 export class AddEditDeleteMedicineComponent implements OnInit {
   id: string;
+  isEditing: boolean;
   form: MedicineForm;
 
   private subscription = new Subscription();
-  service: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,6 +35,7 @@ export class AddEditDeleteMedicineComponent implements OnInit {
       this.activatedRoute.params.subscribe((data: Params) => {
         const id = data['id'];
         if (id.length === 36) {
+          this.isEditing = true;
           this.getMedicineById(id);
         } else {
           this.startNewForm();
@@ -52,6 +54,10 @@ export class AddEditDeleteMedicineComponent implements OnInit {
     } else {
       this.store.dispatch(new AddMedicine(this.form.value));
     }
+  }
+
+  deleteMedicine(): void {
+    this.store.dispatch(new DeleteMedicine(this.form.id.value));
   }
 
   routeTo(): void {
