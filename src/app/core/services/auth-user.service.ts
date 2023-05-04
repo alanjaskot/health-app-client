@@ -5,6 +5,7 @@ import { envoirment } from 'src/environments/envoirment.dev';
 import { ITokenModel } from '../models/token.model';
 import { ILoginModel } from '../models/login.model';
 import { IRegisterModel } from '../models/register.model';
+import { IUSerModel } from '../models/user.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -44,5 +45,10 @@ export class AuthUserService {
       password: password,
     };
     this.http.post(url, user, httpOptions);
+  }
+
+  getMe(): Observable<IUSerModel> {
+    const url = `${envoirment.apiUrl}/user/user/me`;
+    return this.http.get<IUSerModel>(url, httpOptions);
   }
 }
