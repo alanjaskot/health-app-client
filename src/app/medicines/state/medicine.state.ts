@@ -114,6 +114,9 @@ export class MedicineState {
             ),
           })
         );
+        this.zone.run(() => {
+          this.router.navigate(['medicine/list']);
+        });
       })
     );
   }
@@ -129,6 +132,9 @@ export class MedicineState {
             ),
           })
         );
+        this.zone.run(() => {
+          this.router.navigate(['medicine/list']);
+        });
       })
     );
   }

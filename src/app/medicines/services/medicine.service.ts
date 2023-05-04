@@ -17,30 +17,33 @@ const httpOptions = {
 export class MedicineService {
   constructor(private http: HttpClient) {}
 
-  url = `${envoirment.apiUrl}/medicine`;
-
   getAllMedicines(): Observable<IMedicineModel[]> {
-    return this.http.get<IMedicineModel[]>(this.url, httpOptions);
+    const url = `${envoirment.apiUrl}/medicine`;
+    return this.http.get<IMedicineModel[]>(url, httpOptions);
   }
 
   getDeletedMedicines(userId: string, isDeleted: boolean): Observable<IMedicineModel[]> {
-    const deletedMedicinesUrl = `${this.url}/deleted?userId=${userId}&idDeleted=${isDeleted}`;
-    return this.http.get<IMedicineModel[]>(deletedMedicinesUrl, httpOptions);
+    const url = `${envoirment.apiUrl}/medicine/deleted?userId=${userId}&idDeleted=${isDeleted}`;
+    return this.http.get<IMedicineModel[]>(url, httpOptions);
   }
 
   getMedicineById(id: string): Observable<IMedicineModel> {
-    return this.http.get<IMedicineModel>(`${this.url}/${id}`, httpOptions);
+    const url = `${envoirment.apiUrl}/medicine/${id}`;
+    return this.http.get<IMedicineModel>(url, httpOptions);
   }
 
   addMedicine(toCreate: IMedicineModel): Observable<IMedicineModel> {
-    return this.http.post<IMedicineModel>(`${this.url}`, toCreate, httpOptions);
+    const url = `${envoirment.apiUrl}/medicine/new`;
+    return this.http.post<IMedicineModel>(url, toCreate, httpOptions);
   }
 
   updateMedicine(toUpdate: IMedicineModel): Observable<IMedicineModel> {
-    return this.http.put<IMedicineModel>(this.url, toUpdate, httpOptions);
+    const url = `${envoirment.apiUrl}/medicine/edit`;
+    return this.http.put<IMedicineModel>(url, toUpdate, httpOptions);
   }
 
   deleteMedicine(id: string): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.url}/${id}`, httpOptions);
+    const url = `${envoirment.apiUrl}/medicine/delete/${id}`;
+    return this.http.delete<boolean>(url, httpOptions);
   }
 }

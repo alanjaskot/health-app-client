@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Store } from '@ngxs/store';
+import { Subscription, map } from 'rxjs';
 import { MedicineForm } from 'src/app/medicines/form/medicine.form';
 import { IMedicineModel } from 'src/app/medicines/models/medicine.model';
-import { MedicineService } from 'src/app/medicines/services/medicine.service';
+import {
+  AddMedicine,
+  LoadMedicineById,
+  UpdateMedicine,
+} from 'src/app/medicines/state/medicine.actions';
+import { MedicineState } from 'src/app/medicines/state/medicine.state';
 
 @Component({
   selector: 'app-add-edit-delete-medicine',
@@ -15,40 +21,59 @@ export class AddEditDeleteMedicineComponent implements OnInit {
   form: MedicineForm;
 
   private subscription = new Subscription();
+  service: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private service: MedicineService
+    private store: Store
   ) {}
 
   ngOnInit(): void {
     this.subscription.add(
       this.activatedRoute.params.subscribe((data: Params) => {
-        if (data['id'] !== 'new') {
-          console.log('id length =>', data['id'].length);
+        const id = data['id'];
+        if (id.length === 36) {
+          this.getMedicineById(id);
         } else {
-          this.form = new MedicineForm();
+          this.startNewForm();
         }
       })
     );
-
-    const date = new Date();
-
-    const med: IMedicineModel = {
-      id: '10',
-      name: 'ter',
-      dose: 8,
-      unit: 'g',
-      medicalDosage: 8,
-      updated: date,
-      created: date,
-    };
-
-    this.service.addMedicine(med);
   }
 
-  addMedicine() {
-    this.service.addMedicine(this.form.value);
+  saveMedicine(): void {
+    if (!this.form.valid) {
+      return;
+    }
+
+    if (this.form.id.value.length === 36) {
+      this.store.dispatch(new UpdateMedicine(this.form.value));
+    } else {
+      this.store.dispatch(new AddMedicine(this.form.value));
+    }
+  }
+
+  routeTo(): void {
+    this.router.navigate(['/medicine/list']);
+  }
+
+  private getMedicineById(id: string): void {
+    this.subscription.add(
+      this.store.dispatch(new LoadMedicineById(id)).subscribe(() => {
+        this.store
+          .select(MedicineState.medicineById)
+          .pipe(map((filterFn) => filterFn(id)))
+          .subscribe((medicineFromId: IMedicineModel | undefined) => {
+            if (medicineFromId) {
+              this.form = new MedicineForm(medicineFromId);
+            }
+          });
+      })
+    );
+  }
+
+  private startNewForm(): void {
+    this.form = new MedicineForm();
   }
 }

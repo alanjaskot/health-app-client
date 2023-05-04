@@ -14,8 +14,8 @@ export class MedicineForm extends UntypedFormGroup {
   readonly medicalDosage = this.get('medicalDosage') as UntypedFormControl;
 
   constructor(
-    readonly fb: UntypedFormBuilder = new UntypedFormBuilder(),
-    medicine?: IMedicineModel
+    medicine?: IMedicineModel,
+    readonly fb: UntypedFormBuilder = new UntypedFormBuilder()
   ) {
     super(
       fb.group({
