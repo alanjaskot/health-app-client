@@ -9,6 +9,9 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import { authInterceptorProviders } from './core/services/auth.interceptor';
+import { MedicineState } from './medicines/state/medicine.state';
+import { NgxsModule } from '@ngxs/store';
+import { envoirment } from 'src/environments/envoirment.dev';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +22,7 @@ import { authInterceptorProviders } from './core/services/auth.interceptor';
     CoreModule,
     MaterialModule,
     SharedModule,
+    NgxsModule.forFeature([MedicineState]),
     ToastrModule.forRoot({
       closeButton: true,
       timeOut: 2000, // 2 seconds

@@ -28,7 +28,7 @@ const MEDICINE_STATE_TOKEN = new StateToken<MedicineStateModel>('medicineSate');
     medicines: [],
   },
 })
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class MedicineState {
   constructor(private service: MedicineService, private zone: NgZone, private router: Router) {}
 
