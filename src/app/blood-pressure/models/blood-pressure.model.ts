@@ -7,4 +7,5 @@ export interface IBloodPressure {
   pulse: number;
   measurementAt: Date;
   Medicines: IIdName[];
+  isDelete: boolean;
 }
