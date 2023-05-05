@@ -6,10 +6,18 @@ import { CoreModule } from '../core/core.module';
 import { MaterialModule } from '../modules/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { BloodPressureRoutingModule } from './blood-pressure-router.module';
 
 @NgModule({
   declarations: [BloodPressureComponent],
-  imports: [CommonModule, CoreModule, MaterialModule, ReactiveFormsModule, SharedModule],
+  imports: [
+    BloodPressureRoutingModule,
+    CommonModule,
+    CoreModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    SharedModule,
+  ],
   providers: [BloodPressureService],
 })
 export class BloodPressureModule {}
