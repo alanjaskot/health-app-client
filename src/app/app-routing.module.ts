@@ -9,6 +9,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegisterComponent },
   {
+    path: 'blood-pressure',
+    loadChildren: () =>
+      import('./blood-pressures/blood-pressure.module').then((m) => m.BloodPressureModule),
+  },
+  {
     path: 'medicine',
     loadChildren: () => import('./medicines/medicine.module').then((m) => m.MedicineModule),
   },
