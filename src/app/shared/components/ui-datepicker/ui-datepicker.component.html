@@ -1,1 +1,12 @@
-<p>ui-datepicker works!</p>
+<mat-form-field fxFlex *ngIf="control" appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [min]="min"
+    [matDatepicker]="picker"
+    [formControl]="control"
+    (dateChange)="onChange($event)"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
