@@ -25,6 +25,11 @@
                 [control]="form.medicines"
                 [options]="getAllMedicines$ | async"
             ></app-ui-select>
+            <app-ui-datepicker
+                [label]="'data pomiaru'"
+                [control]="form.measurementAt"
+                [required]="true"
+            ></app-ui-datepicker>
             <app-ui-button>
                 [text]="save"
                 (click)="saveBloodPressure()"
