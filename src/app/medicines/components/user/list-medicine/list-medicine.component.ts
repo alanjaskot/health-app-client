@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MedicineService } from 'src/app/medicines/services/medicine.service';
+import { MedicineService } from 'src/app/medicines/services/medicine-api.service';
 
 @Component({
   selector: 'app-list-medicine',

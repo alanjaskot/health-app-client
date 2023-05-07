@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class MedicineService {
+export class MedicineApiService {
   constructor(private http: HttpClient) {}
 
   getAllMedicines(): Observable<IMedicineModel[]> {

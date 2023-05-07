@@ -8,7 +8,7 @@ import { MedicineComponent } from './medicine.component';
 import { MedicineRoutingModule } from './medicine-router.module';
 import { ListMedicineComponent } from './components/user/list-medicine/list-medicine.component';
 import { AddEditDeleteMedicineComponent } from './components/user/add-edit-delete-medicine/add-edit-delete-medicine.component';
-import { MedicineService } from './services/medicine.service';
+import { MedicineService } from './services/medicine-api.service';
 
 @NgModule({
   declarations: [AddEditDeleteMedicineComponent, ListMedicineComponent, MedicineComponent],
