@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MedicineService } from 'src/app/medicines/services/medicine-api.service';
+import { MedicineApiService } from 'src/app/medicines/services/medicine-api.service';
 
 @Component({
   selector: 'app-list-medicine',
@@ -17,7 +17,7 @@ export class ListMedicineComponent {
     'updated',
   ];
 
-  constructor(private medicineService: MedicineService) {}
+  constructor(private service: MedicineApiService) {}
 
-  getAllMedicines$ = this.medicineService.getAllMedicines();
+  getAllMedicines$ = this.service.getAllMedicines();
 }

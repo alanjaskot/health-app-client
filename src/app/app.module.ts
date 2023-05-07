@@ -12,10 +12,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { authInterceptorProviders } from './core/services/auth.interceptor';
 import { MedicineState } from './medicines/state/medicine.state';
 import { envoirment } from 'src/environments/envoirment.dev';
-import { BloodPressureComponent } from './blood-pressures/blood-pressure.component';
 
 @NgModule({
-  declarations: [AppComponent, BloodPressureComponent],
+  declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,

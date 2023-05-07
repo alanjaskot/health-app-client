@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
 import { IMedicineModel } from '../models/medicine.model';
 import { Injectable, NgZone } from '@angular/core';
-import { MedicineService } from '../services/medicine-api.service';
+import { MedicineApiService } from '../services/medicine-api.service';
 import { Router } from '@angular/router';
 import {
   AddMedicine,
@@ -30,7 +30,7 @@ const MEDICINE_STATE_TOKEN = new StateToken<MedicineStateModel>('medicineSate');
 })
 @Injectable({ providedIn: 'root' })
 export class MedicineState {
-  constructor(private service: MedicineService, private zone: NgZone, private router: Router) {}
+  constructor(private service: MedicineApiService, private zone: NgZone, private router: Router) {}
 
   @Action(LoadMedicines, { cancelUncompleted: true })
   loadMedicines({ getState, setState }: StateContext<MedicineStateModel>) {
