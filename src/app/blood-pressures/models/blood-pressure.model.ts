@@ -1,11 +1,11 @@
 import { IIdName } from 'src/app/shared/models/id-name';
 
-export interface IBloodPressure {
+export interface IBloodPressureModel {
   id: string;
   diastolicPressure: number;
   systolicPressure: number;
   pulse: number;
   measurementAt: Date;
-  Medicines: IIdName[];
+  medicines: IIdName[];
   isDelete: boolean;
 }
