@@ -1,1 +1,24 @@
-<p>list-blood-pressure works!</p>
+<table mat-table [dataSource]="fetchBloodPressures$">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="systolicPressure">
+        <th mat-header-cell *matHeaderCellDef> Systolic Pressure </th>
+        <td mat-cell *matCellDef="let element"> {{element.systolicPressure}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="diastolicPressure">
+        <th mat-header-cell *matHeaderCellDef> Diastolic Pressure </th>
+        <td mat-cell *matCellDef="let element"> {{element.diastolicPressure}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pulse">
+        <th mat-header-cell *matHeaderCellDef> Pulse </th>
+        <td mat-cell *matCellDef="let element"> {{element.pulse}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table>
