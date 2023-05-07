@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiSelectGroupComponent } from './ui-select-group.component';
+import { UiSelectGroupComponent } from './ui-select.component';
 
 describe('UiSelectGroupComponent', () => {
   let component: UiSelectGroupComponent;
@@ -8,9 +8,8 @@ describe('UiSelectGroupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiSelectGroupComponent ]
-    })
-    .compileComponents();
+      declarations: [UiSelectGroupComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UiSelectGroupComponent);
     component = fixture.componentInstance;

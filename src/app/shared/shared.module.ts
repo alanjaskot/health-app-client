@@ -5,7 +5,7 @@ import { MaterialModule } from '../modules/material.module';
 import { UiButtonComponent } from './components/ui-button/ui-button.component';
 import { CommonModule } from '@angular/common';
 import { UiTableComponent } from './components/ui-table/ui-table.component';
-import { UiSelectGroupComponent } from './components/ui-select-group/ui-select-group.component';
+import { UiSelectGroupComponent } from './components/ui-select/ui-select.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, MaterialModule, ReactiveFormsModule],
