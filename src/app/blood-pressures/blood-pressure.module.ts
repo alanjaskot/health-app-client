@@ -7,9 +7,10 @@ import { MaterialModule } from '../modules/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { BloodPressureRoutingModule } from './blood-pressure-router.module';
+import { ListBloodPressureComponent } from './components/user/list-blood-pressure/list-blood-pressure.component';
 
 @NgModule({
-  declarations: [BloodPressureComponent],
+  declarations: [BloodPressureComponent, ListBloodPressureComponent],
   imports: [
     BloodPressureRoutingModule,
     CommonModule,
