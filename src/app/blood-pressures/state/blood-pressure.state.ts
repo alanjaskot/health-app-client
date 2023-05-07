@@ -1,5 +1,5 @@
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
-import { IBloodPressure } from '../models/blood-pressure.model';
+import { IBloodPressureModel } from '../models/blood-pressure.model';
 import { Injectable, NgZone } from '@angular/core';
 import { BloodPressureService } from '../services/blood-pressure-api.service';
 import { Router } from '@angular/router';
@@ -16,8 +16,8 @@ import { UpdateBloodPressure } from './blood-pressure.actions';
 
 export interface BloodPressureStateModel {
   loaded: boolean;
-  bps: IBloodPressure[];
-  deletedBps: IBloodPressure[]; // temp
+  bps: IBloodPressureModel[];
+  deletedBps: IBloodPressureModel[]; // temp
 }
 
 const BLOOD_PRESSURE_STATE_TOKEN = new StateToken<BloodPressureStateModel>('bloodPressureSate');
@@ -42,7 +42,7 @@ export class BloodPressureState {
   @Action(LoadBloodPressures, { cancelUncompleted: true })
   loadBloodPressures({ getState, setState }: StateContext<BloodPressureStateModel>) {
     return this.service.getAllBloodPressures().pipe(
-      tap((bps: IBloodPressure[]) => {
+      tap((bps: IBloodPressureModel[]) => {
         const state = getState();
         setState({
           ...state,
@@ -58,7 +58,7 @@ export class BloodPressureState {
     { userId, isDeleted }: LoadDeletedBloodPressures
   ) {
     return this.service.getDeletedBloodPressures(userId, isDeleted).pipe(
-      tap((deletedBps: IBloodPressure[]) => {
+      tap((deletedBps: IBloodPressureModel[]) => {
         const state = getState();
         setState({
           ...state,
@@ -75,12 +75,12 @@ export class BloodPressureState {
   ) {
     const bloodPressureFromState = context.getState().bps;
     return this.service.getBloodPressureById(id).pipe(
-      tap((response: IBloodPressure) => {
-        if (bloodPressureFromState.find((m: IBloodPressure) => m.id === id)) {
+      tap((response: IBloodPressureModel) => {
+        if (bloodPressureFromState.find((m: IBloodPressureModel) => m.id === id)) {
           context.setState(
             patch({
-              bps: updateItem<IBloodPressure>(
-                (toGet: IBloodPressure | undefined) => toGet?.id === response.id,
+              bps: updateItem<IBloodPressureModel>(
+                (toGet: IBloodPressureModel | undefined) => toGet?.id === response.id,
                 response
               ),
             })
@@ -88,7 +88,7 @@ export class BloodPressureState {
         } else {
           context.setState(
             patch({
-              bps: insertItem<IBloodPressure>(response),
+              bps: insertItem<IBloodPressureModel>(response),
             })
           );
         }
@@ -99,7 +99,7 @@ export class BloodPressureState {
   @Action(AddBloodPressure, { cancelUncompleted: true })
   addBloodPressure(context: StateContext<BloodPressureStateModel>, { toCreate }: AddBloodPressure) {
     return this.service.addBloodPressure(toCreate).pipe(
-      tap((response: IBloodPressure) => {
+      tap((response: IBloodPressureModel) => {
         context.setState(
           patch({
             bps: append([response]),
@@ -118,10 +118,10 @@ export class BloodPressureState {
     { toUpdate }: UpdateBloodPressure
   ) {
     return this.service.updateBloodPressure(toUpdate).pipe(
-      tap((response: IBloodPressure) => {
+      tap((response: IBloodPressureModel) => {
         patch({
-          bps: updateItem<IBloodPressure>(
-            (toGet: IBloodPressure | undefined) => toGet?.id === response.id,
+          bps: updateItem<IBloodPressureModel>(
+            (toGet: IBloodPressureModel | undefined) => toGet?.id === response.id,
             response
           ),
         });
@@ -138,8 +138,8 @@ export class BloodPressureState {
       tap(() => {
         context.setState(
           patch({
-            bps: removeItem<IBloodPressure>(
-              (toDelete: IBloodPressure | undefined) => toDelete?.id === id
+            bps: removeItem<IBloodPressureModel>(
+              (toDelete: IBloodPressureModel | undefined) => toDelete?.id === id
             ),
           })
         );
@@ -168,7 +168,7 @@ export class BloodPressureState {
   @Selector()
   static bloodPressureById(state: BloodPressureStateModel) {
     return (id: string) => {
-      return state.bps.find((bp: IBloodPressure) => bp.id === id);
+      return state.bps.find((bp: IBloodPressureModel) => bp.id === id);
     };
   }
 }

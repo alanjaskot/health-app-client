@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BloodPressureComponent } from './blood-pressure.component';
 import { ListBloodPressureComponent } from './components/user/list-blood-pressure/list-blood-pressure.component';
-import { AddEditDeleteMedicineComponent } from '../medicines/components/user/add-edit-delete-medicine/add-edit-delete-medicine.component';
+import { AddUpdateDeleteBloodPressureComponent } from './components/user/add-update-delete-blood-pressure/add-update-delete-blood-pressure.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
     component: BloodPressureComponent,
     children: [
       { path: 'list', component: ListBloodPressureComponent },
-      { path: ':id', component: AddEditDeleteMedicineComponent },
+      { path: ':id', component: AddUpdateDeleteBloodPressureComponent },
     ],
   },
 ];
