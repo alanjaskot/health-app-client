@@ -8,9 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { BloodPressureRoutingModule } from './blood-pressure-router.module';
 import { ListBloodPressureComponent } from './components/user/list-blood-pressure/list-blood-pressure.component';
+import { AddEditDeleteMedicineComponent } from '../medicines/components/user/add-edit-delete-medicine/add-edit-delete-medicine.component';
 
 @NgModule({
-  declarations: [BloodPressureComponent, ListBloodPressureComponent],
+  declarations: [
+    AddEditDeleteMedicineComponent,
+    BloodPressureComponent,
+    ListBloodPressureComponent,
+  ],
   imports: [
     BloodPressureRoutingModule,
     CommonModule,
