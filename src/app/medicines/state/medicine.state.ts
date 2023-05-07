@@ -150,9 +150,9 @@ export class MedicineState {
   }
 
   @Selector()
-  static medicineById(staet: MedicineStateModel) {
+  static medicineById(state: MedicineStateModel) {
     return (id: string) => {
-      return staet.medicines.find((medicine: IMedicineModel) => medicine.id === id);
+      return state.medicines.find((medicine: IMedicineModel) => medicine.id === id);
     };
   }
 }

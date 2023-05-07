@@ -37,7 +37,7 @@ export class BloodPressureService {
     return this.http.post<IBloodPressure>(url, toCreate, httpOptions);
   }
 
-  editBloodPressure(toUpdate: IBloodPressure): Observable<IBloodPressure> {
+  updateBloodPressure(toUpdate: IBloodPressure): Observable<IBloodPressure> {
     const url = `${envoirment.apiUrl}/blood-pressure`;
     return this.http.put<IBloodPressure>(url, toUpdate, httpOptions);
   }

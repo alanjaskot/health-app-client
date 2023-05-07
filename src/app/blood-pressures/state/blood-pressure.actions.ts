@@ -10,7 +10,7 @@ export class LoadDeletedBloodPressures {
   constructor(public userId: string, public isDeleted: boolean) {}
 }
 
-export class LoadBloodPressuresById {
+export class LoadBloodPressureById {
   static type = '[Blood Pressure] Get Blood Pressure By Id';
   constructor(public id: string) {}
 }
