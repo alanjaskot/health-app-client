@@ -4,8 +4,14 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription, map } from 'rxjs';
 import { BloodPressureForm } from 'src/app/blood-pressures/form/blood-pressure.form';
 import { IBloodPressureModel } from 'src/app/blood-pressures/models/blood-pressure.model';
-import { LoadBloodPressureById } from 'src/app/blood-pressures/state/blood-pressure.actions';
+import {
+  AddBloodPressure,
+  DeleteBloodPressure,
+  LoadBloodPressureById,
+  UpdateBloodPressure,
+} from 'src/app/blood-pressures/state/blood-pressure.actions';
 import { BloodPressureState } from 'src/app/blood-pressures/state/blood-pressure.state';
+import { LoadMedicines } from 'src/app/medicines/state/medicine.actions';
 import { MedicineState } from 'src/app/medicines/state/medicine.state';
 import { IIdName } from 'src/app/shared/models/id-name';
 
@@ -30,10 +36,35 @@ export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy 
 
   ngOnInit(): void {
     this.getBloodPressureId();
+    this.dispatchMedicines();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  saveBloodPressure(): void {
+    if (this.form.id.value.length === 36) {
+      this.updateBloodPressure();
+    } else {
+      this.addBloodPressure();
+    }
+  }
+
+  deleteBloodPressure(): void {
+    this.store.dispatch(new DeleteBloodPressure(this.id));
+  }
+
+  routeTo(): void {
+    this.router.navigate(['/medicine/list']);
+  }
+
+  private addBloodPressure(): void {
+    this.store.dispatch(new AddBloodPressure(this.form.value));
+  }
+
+  private updateBloodPressure(): void {
+    this.store.dispatch(new UpdateBloodPressure(this.form.value));
   }
 
   private getBloodPressureId(): void {
@@ -64,5 +95,9 @@ export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy 
           });
       })
     );
+  }
+
+  private dispatchMedicines(): void {
+    this.store.dispatch(new LoadMedicines());
   }
 }
