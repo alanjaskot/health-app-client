@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { IBloodPressureModel } from 'src/app/blood-pressures/models/blood-pressure.model';
@@ -15,11 +16,15 @@ export class ListBloodPressureComponent implements OnInit {
   fetchBloodPressures$: Observable<IBloodPressureModel>[];
   data$: Observable<IBloodPressureModel[]>;
 
-  columnsToDisplay = ['id', 'diastolic pressure', 'systolic pressures', 'pulse'];
+  columnsToDisplay = ['diastolic pressure', 'systolic pressure', 'pulse', 'measurement at'];
 
-  constructor(private service: BloodPressureService) {}
+  constructor(private service: BloodPressureService, private router: Router) {}
 
   ngOnInit(): void {
     this.data$ = this.service.getAllBloodPressures();
+  }
+
+  routeTo(): void {
+    this.router.navigate(['/blood-pressure/new']);
   }
 }
