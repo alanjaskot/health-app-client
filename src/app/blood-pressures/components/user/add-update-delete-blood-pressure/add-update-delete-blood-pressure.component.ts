@@ -56,11 +56,12 @@ export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy 
   }
 
   routeTo(): void {
-    this.router.navigate(['/medicine/list']);
+    this.router.navigate(['/blood-pressure/list']);
   }
 
   private addBloodPressure(): void {
-    this.store.dispatch(new AddBloodPressure(this.form.value));
+    const toCrate: IBloodPressureModel = this.form.value;
+    this.store.dispatch(new AddBloodPressure(toCrate));
   }
 
   private updateBloodPressure(): void {

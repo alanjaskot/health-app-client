@@ -30,13 +30,13 @@
                 [control]="form.measurementAt"
                 [required]="true"
             ></app-ui-datepicker>
-            <app-ui-button>
+            <app-ui-button 
                 [text]="'save'"
                 (click)="saveBloodPressure()"
-            </app-ui-button>
+            ></app-ui-button>
             <app-ui-button
                 *ngIf="form.id.value.length === 36"
-                text="'delete'"
+                [text]="'delete'"
                 [color]="'warn'"
                 (click)="deleteBloodPressure()"
             ></app-ui-button>
