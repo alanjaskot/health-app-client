@@ -11,9 +11,6 @@ export class LoadDeletedMedicines {
 }
 
 export class LoadMedicineById {
-  subscribe(arg0: () => void): any {
-    throw new Error('Method not implemented.');
-  }
   static readonly type = '[Medicine] Fetch Medicine By Id';
   constructor(public id: string) {}
 }

@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { BloodPressureRoutingModule } from './blood-pressure-router.module';
 import { ListBloodPressureComponent } from './components/user/list-blood-pressure/list-blood-pressure.component';
 import { AddUpdateDeleteBloodPressureComponent } from './components/user/add-update-delete-blood-pressure/add-update-delete-blood-pressure.component';
+import { NgxsModule } from '@ngxs/store';
+import { BloodPressureState } from './state/blood-pressure.state';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { AddUpdateDeleteBloodPressureComponent } from './components/user/add-upd
     MaterialModule,
     ReactiveFormsModule,
     SharedModule,
+    NgxsModule.forFeature([BloodPressureState]),
   ],
   providers: [BloodPressureService],
 })

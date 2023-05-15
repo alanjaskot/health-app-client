@@ -11,9 +11,6 @@ export class LoadDeletedBloodPressures {
 }
 
 export class LoadBloodPressureById {
-  subscribe(arg0: () => void): any {
-    throw new Error('Method not implemented.');
-  }
   static type = '[Blood Pressure] Get Blood Pressure By Id';
   constructor(public id: string) {}
 }

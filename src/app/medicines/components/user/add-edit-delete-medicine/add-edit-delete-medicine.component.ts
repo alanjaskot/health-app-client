@@ -20,7 +20,7 @@ import { MedicineState } from 'src/app/medicines/state/medicine.state';
 export class AddEditDeleteMedicineComponent implements OnInit {
   id: string;
   isEditing: boolean;
-  form: MedicineForm;
+  form: MedicineForm = new MedicineForm();
 
   private subscription = new Subscription();
 
