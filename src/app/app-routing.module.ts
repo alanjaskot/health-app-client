@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegisterComponent },
+  { path: 'bmi', loadChildren: () => import('./bmis/bmi.module').then((m) => m.BmiModule) },
   {
     path: 'blood-pressure',
     loadChildren: () =>
