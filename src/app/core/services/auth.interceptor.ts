@@ -22,7 +22,6 @@ export class AuthInterceptor implements HttpInterceptor {
       type: this.auth.getType(),
       token: this.auth.getToken(),
     };
-    console.log('token', token.token);
     if (token.token.length > 0) {
       authReq = req.clone({
         headers: req.headers

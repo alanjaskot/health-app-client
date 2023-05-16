@@ -8,9 +8,8 @@ describe('BloodPressureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BloodPressureComponent ]
-    })
-    .compileComponents();
+      declarations: [BloodPressureComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BloodPressureComponent);
     component = fixture.componentInstance;

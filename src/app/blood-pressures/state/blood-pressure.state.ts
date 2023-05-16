@@ -76,7 +76,6 @@ export class BloodPressureState {
     const bloodPressureFromState = context.getState().bps;
     return this.service.getBloodPressureById(id).pipe(
       tap((response: IBloodPressureModel) => {
-        console.log('get bp by id =>', response);
         if (bloodPressureFromState.find((bp: IBloodPressureModel) => bp.id === id)) {
           context.setState(
             patch({

@@ -8,9 +8,8 @@ describe('AddUpdateDeleteBloodPressureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddUpdateDeleteBloodPressureComponent ]
-    })
-    .compileComponents();
+      declarations: [AddUpdateDeleteBloodPressureComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddUpdateDeleteBloodPressureComponent);
     component = fixture.componentInstance;
