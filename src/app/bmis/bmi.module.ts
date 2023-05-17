@@ -6,6 +6,7 @@ import { MaterialModule } from '../modules/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { BmiRouterModule } from './bmi-router.module';
+import { ListBmiComponent } from './components/user/list-bmi/list-bmi.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { BmiRouterModule } from './bmi-router.module';
     ReactiveFormsModule,
     SharedModule,
   ],
-  declarations: [BmiComponent],
+  declarations: [BmiComponent, ListBmiComponent],
 })
 export class BmiModule {}
