@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MedicineApiService } from 'src/app/medicines/services/medicine-api.service';
 
 @Component({
@@ -17,7 +18,11 @@ export class ListMedicineComponent {
     'updated',
   ];
 
-  constructor(private service: MedicineApiService) {}
+  constructor(private service: MedicineApiService, private router: Router) {}
 
   getAllMedicines$ = this.service.getAllMedicines();
+
+  routeTo(): void {
+    this.router.navigate(['/medicine/new']);
+  }
 }

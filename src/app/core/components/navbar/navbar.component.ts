@@ -1,18 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthUserService } from '../../services/auth-user.service';
-import { ITokenModel } from '../../models/token.model';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
-  isLoggedIn = false;
+export class NavbarComponent {
+  constructor(private router: Router) {}
 
-  constructor(private authService: AuthUserService) {}
+  routeTo(): void {
+    this.router.navigate(['/login']);
+  }
 
-  ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn;
+  routeToBloodPressure(): void {
+    this.router.navigate(['/blood-pressure/list']);
+  }
+
+  routeToBmi(): void {
+    this.router.navigate(['bmi/list']);
+  }
+
+  routeToMedicine(): void {
+    this.router.navigate(['/medicine/list']);
   }
 }
