@@ -5,7 +5,7 @@ export class BmiForm extends UntypedFormGroup {
   readonly id = this.get('id') as UntypedFormControl;
   readonly bmi = this.get('bmi') as UntypedFormControl;
   readonly height = this.get('height') as UntypedFormControl;
-  readonly weight = this.get('wieght') as UntypedFormControl;
+  readonly weight = this.get('weight') as UntypedFormControl;
   readonly created = this.get('created') as UntypedFormControl;
 
   constructor(bmi?: IBmiModel, readonly fb: UntypedFormBuilder = new UntypedFormBuilder()) {

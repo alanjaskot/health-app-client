@@ -18,7 +18,7 @@ export class BmiApiService {
   constructor(private http: HttpClient) {}
 
   getBmis(): Observable<IBmiModel[]> {
-    const url = `${envoirment.apiUrl}/bmi`;
+    const url = `https://localhost:5001/api/bmi`;
     return this.http.get<IBmiModel[]>(url, httpOptions);
   }
 
@@ -34,6 +34,8 @@ export class BmiApiService {
 
   addBmi(toCreate: IBmiModel): Observable<IBmiModel> {
     const url = `${envoirment.apiUrl}/bmi`;
+    console.log('add bmi =>', toCreate);
+    console.log('http =>', this.http.post<IBmiModel>(url, toCreate, httpOptions));
     return this.http.post<IBmiModel>(url, toCreate, httpOptions);
   }
 
