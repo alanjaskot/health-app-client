@@ -4,5 +4,4 @@ export interface IBmiModel {
   weight: number;
   bmi: number;
   created: Date;
-  updated: Date;
 }
