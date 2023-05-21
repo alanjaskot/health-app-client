@@ -12,16 +12,4 @@ export class NavbarComponent {
   routeTo(): void {
     this.router.navigate(['/login']);
   }
-
-  routeToBloodPressure(): void {
-    this.router.navigate(['/blood-pressure/list']);
-  }
-
-  routeToBmi(): void {
-    this.router.navigate(['bmi/list']);
-  }
-
-  routeToMedicine(): void {
-    this.router.navigate(['/medicine/list']);
-  }
 }
