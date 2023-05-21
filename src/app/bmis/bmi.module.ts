@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { BmiRouterModule } from './bmi-router.module';
 import { ListBmiComponent } from './components/user/list-bmi/list-bmi.component';
+import { BmiApiService } from './service/bmi-api.service';
 
 @NgModule({
   imports: [
@@ -18,5 +19,6 @@ import { ListBmiComponent } from './components/user/list-bmi/list-bmi.component'
     SharedModule,
   ],
   declarations: [BmiComponent, ListBmiComponent],
+  providers: [BmiApiService],
 })
 export class BmiModule {}
