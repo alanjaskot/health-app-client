@@ -12,7 +12,7 @@ import { BmiState } from 'src/app/bmis/state/bmi.state';
 @Component({
   selector: 'app-add-update-delete-bmi',
   templateUrl: './add-update-delete-bmi.component.html',
-  styleUrls: ['./add-update-delete-bmi.component.css'],
+  styleUrls: ['./add-update-delete-bmi.component.scss'],
 })
 export class AddUpdateDeleteBmiComponent implements OnDestroy, OnInit {
   form: BmiForm;

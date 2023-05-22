@@ -3,7 +3,7 @@
     "tabWidth": 2,
     "bracketSpacing": true,
     "printWidth": 100,
-    "prettier.cssEnable": ["css"],
+    "prettier.scssEnable": ["scss"],
     "endOfLine": "auto",
     "semi": true
   }

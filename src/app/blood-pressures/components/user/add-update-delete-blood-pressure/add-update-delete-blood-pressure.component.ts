@@ -18,7 +18,7 @@ import { IIdName } from 'src/app/shared/models/id-name';
 @Component({
   selector: 'app-add-update-delete-blood-pressure',
   templateUrl: './add-update-delete-blood-pressure.component.html',
-  styleUrls: ['./add-update-delete-blood-pressure.component.css'],
+  styleUrls: ['./add-update-delete-blood-pressure.component.scss'],
 })
 export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy {
   @Select(MedicineState.medicinesFetched) getAllMedicines$: Observable<IIdName>;
