@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterForm } from '../../forms/register.form';
 import { AuthUserService } from '../../services/auth-user.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent {
   form: RegisterForm = new RegisterForm();
 
-  constructor(private userService: AuthUserService, private toastr: ToastrService) {}
+  constructor(private userService: AuthUserService) {}
 
   registerUser(): void {
     if (!this.form.valid) {
@@ -19,7 +18,6 @@ export class RegisterComponent {
     }
 
     if (this.form.password.value != this.form.confirmPassword.value) {
-      this.toastr.error('passwords are not the same');
       return;
     }
 
