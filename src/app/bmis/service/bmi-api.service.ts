@@ -34,8 +34,6 @@ export class BmiApiService {
 
   addBmi(toCreate: IBmiModel): Observable<IBmiModel> {
     const url = `${envoirment.apiUrl}/bmi`;
-    console.log('add bmi =>', toCreate);
-    console.log('http =>', this.http.post<IBmiModel>(url, toCreate, httpOptions));
     return this.http.post<IBmiModel>(url, toCreate, httpOptions);
   }
 
