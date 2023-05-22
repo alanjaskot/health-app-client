@@ -89,6 +89,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/health.css",
               "src/styles.scss"
             ],
             "scripts": []
