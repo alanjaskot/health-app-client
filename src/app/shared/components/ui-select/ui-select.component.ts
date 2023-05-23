@@ -5,7 +5,7 @@ import { MatSelectChange } from '@angular/material/select';
 @Component({
   selector: 'app-ui-select',
   templateUrl: './ui-select.component.html',
-  styleUrls: ['./ui-select.component.scss'],
+  styleUrls: ['./ui-select.component.css'],
 })
 export class UiSelectGroupComponent {
   @Input() label = '';

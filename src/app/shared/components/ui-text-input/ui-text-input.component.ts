@@ -4,7 +4,7 @@ import { UntypedFormControl } from '@angular/forms';
 @Component({
   selector: 'app-ui-text-input',
   templateUrl: './ui-text-input.component.html',
-  styleUrls: ['./ui-text-input.component.scss'],
+  styleUrls: ['./ui-text-input.component.css'],
 })
 export class UiTextInputComponent {
   @Input() label = '';

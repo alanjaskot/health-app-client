@@ -9,7 +9,7 @@ import { BloodPressureState } from 'src/app/blood-pressures/state/blood-pressure
 @Component({
   selector: 'app-list-blood-pressure',
   templateUrl: './list-blood-pressure.component.html',
-  styleUrls: ['./list-blood-pressure.component.scss'],
+  styleUrls: ['./list-blood-pressure.component.css'],
 })
 export class ListBloodPressureComponent implements OnInit {
   @Select(BloodPressureState.bloodPressuresFetched)

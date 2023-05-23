@@ -8,7 +8,7 @@ import { AuthUserService } from '../../services/auth-user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnDestroy {
   form: LoginForm = new LoginForm();

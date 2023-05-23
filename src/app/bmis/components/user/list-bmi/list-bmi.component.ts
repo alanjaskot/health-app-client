@@ -9,7 +9,7 @@ import { BmiState } from 'src/app/bmis/state/bmi.state';
 @Component({
   selector: 'app-list-bmi',
   templateUrl: './list-bmi.component.html',
-  styleUrls: ['./list-bmi.component.scss'],
+  styleUrls: ['./list-bmi.component.css'],
 })
 export class ListBmiComponent implements OnInit {
   @Select(BmiState.bmiFetched) data$: Observable<IBmiModel[]>;

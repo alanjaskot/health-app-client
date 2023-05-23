@@ -5,7 +5,7 @@ import { MedicineApiService } from 'src/app/medicines/services/medicine-api.serv
 @Component({
   selector: 'app-list-medicine',
   templateUrl: './list-medicine.component.html',
-  styleUrls: ['./list-medicine.component.scss'],
+  styleUrls: ['./list-medicine.component.css'],
 })
 export class ListMedicineComponent {
   displayingColumns: string[] = [
