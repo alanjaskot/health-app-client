@@ -29,7 +29,14 @@
                     [required]="true"
                 ></app-ui-datepicker>
             </div>
+            <div class="row-container">
+                <app-ui-slide-toggle 
+                  [control]="form.hasTakenMedicines"
+                  [label]="'has taken medicine?'"              
+                ></app-ui-slide-toggle>
+            </div>
             <app-ui-select
+                *ngIf="form.hasTakenMedicines.value"
                 label="medicines"
                 [isMultiple]="true"
                 [control]="form.medicines"

@@ -19,3 +19,7 @@ mat-card-title {
 mat-form-field {
     width: 100%;
 }
+
+app-ui-slide-toggle {
+    padding-bottom: 20px;
+}
