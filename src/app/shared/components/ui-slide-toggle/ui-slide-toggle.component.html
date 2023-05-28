@@ -1,0 +1,10 @@
+<mat-slide-toggle
+  fxFlex
+  *ngIf="control"
+  appearance="outline"
+  [formControl]="control"
+  [required]="required"
+  [ngClass]="{ disabled: disabled }"
+  (change)="onChange($event)"
+  >{{ label }}</mat-slide-toggle
+>
