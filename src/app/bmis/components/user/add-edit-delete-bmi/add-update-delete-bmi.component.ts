@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BmiForm } from 'src/app/bmis/forms/bmi.form';
 import { IBmiModel } from 'src/app/bmis/models/bmi.model';
-import { BmiApiService } from 'src/app/bmis/service/bmi-api.service';
 import { AddBmi, DeleteBmi, LoadBmiById, UpdateBmi } from 'src/app/bmis/state/bmi.actions';
 import { BmiState } from 'src/app/bmis/state/bmi.state';
 
@@ -23,8 +22,7 @@ export class AddUpdateDeleteBmiComponent implements OnDestroy, OnInit {
   constructor(
     private activatedRouter: ActivatedRoute,
     private router: Router,
-    private store: Store,
-    private service: BmiApiService
+    private store: Store
   ) {}
 
   ngOnInit(): void {

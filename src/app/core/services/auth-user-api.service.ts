@@ -17,7 +17,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthUserService {
+export class AuthUserApiService {
   public isLoggedIn = false;
   type: string;
   token: string;

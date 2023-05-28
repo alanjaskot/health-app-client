@@ -1,4 +1,8 @@
+.body {
+    height: 50px;
+}
+
 .button {
     display: flex;
-    flex-flow: row-reverse;
+    flex-direction: row-reverse;
 }

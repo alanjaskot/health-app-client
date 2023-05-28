@@ -7,7 +7,7 @@ import { MaterialModule } from '../modules/material.module';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AuthUserService } from './services/auth-user.service';
+import { AuthUserApiService } from './services/auth-user-api.service';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
@@ -22,7 +22,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     RegisterComponent,
   ],
   imports: [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule, SharedModule],
-  providers: [AuthService, AuthUserService],
+  providers: [AuthService, AuthUserApiService],
   exports: [DashboardComponent, LoginComponent, MainMenuComponent, NavbarComponent],
 })
 export class CoreModule {}

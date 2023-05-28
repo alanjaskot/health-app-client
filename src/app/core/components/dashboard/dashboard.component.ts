@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthUserService } from '../../services/auth-user.service';
+import { AuthUserApiService } from '../../services/auth-user-api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +10,7 @@ import { AuthUserService } from '../../services/auth-user.service';
 export class DashboardComponent implements OnInit {
   isLoggedIn = false;
 
-  constructor(private authService: AuthUserService, private router: Router) {}
+  constructor(private authService: AuthUserApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn;

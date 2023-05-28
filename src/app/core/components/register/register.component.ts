@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterForm } from '../../forms/register.form';
-import { AuthUserService } from '../../services/auth-user.service';
+import { AuthUserApiService } from '../../services/auth-user-api.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,7 @@ import { AuthUserService } from '../../services/auth-user.service';
 export class RegisterComponent {
   form: RegisterForm = new RegisterForm();
 
-  constructor(private userService: AuthUserService) {}
+  constructor(private userService: AuthUserApiService) {}
 
   registerUser(): void {
     if (!this.form.valid) {

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BloodPressureService } from './services/blood-pressure-api.service';
+import { BloodPressureApiService } from './services/blood-pressure-api.service';
 import { BloodPressureComponent } from './blood-pressure.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from '../core/core.module';
@@ -27,6 +27,6 @@ import { BloodPressureState } from './state/blood-pressure.state';
     SharedModule,
     NgxsModule.forFeature([BloodPressureState]),
   ],
-  providers: [BloodPressureService],
+  providers: [BloodPressureApiService],
 })
 export class BloodPressureModule {}

@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { LoginForm } from '../../forms/login.form';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthUserService } from '../../services/auth-user.service';
+import { AuthUserApiService } from '../../services/auth-user-api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnDestroy {
   subscription = new Subscription();
 
   constructor(
-    private service: AuthUserService,
+    private service: AuthUserApiService,
     private authService: AuthService,
     private router: Router
   ) {}

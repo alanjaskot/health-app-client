@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { IBloodPressureModel } from 'src/app/blood-pressures/models/blood-pressure.model';
-import { BloodPressureService } from 'src/app/blood-pressures/services/blood-pressure-api.service';
+import { BloodPressureApiService } from 'src/app/blood-pressures/services/blood-pressure-api.service';
 import { BloodPressureState } from 'src/app/blood-pressures/state/blood-pressure.state';
 
 @Component({
@@ -18,7 +18,7 @@ export class ListBloodPressureComponent implements OnInit {
 
   columnsToDisplay = ['diastolic pressure', 'systolic pressure', 'pulse', 'measurement at'];
 
-  constructor(private service: BloodPressureService, private router: Router) {}
+  constructor(private service: BloodPressureApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.data$ = this.service.getAllBloodPressures();

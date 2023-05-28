@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
 import { IBloodPressureModel } from '../models/blood-pressure.model';
 import { Injectable, NgZone } from '@angular/core';
-import { BloodPressureService } from '../services/blood-pressure-api.service';
+import { BloodPressureApiService } from '../services/blood-pressure-api.service';
 import { Router } from '@angular/router';
 import {
   AddBloodPressure,
@@ -34,7 +34,7 @@ const navigate = 'blood-pressure/list';
 @Injectable({ providedIn: 'root' })
 export class BloodPressureState {
   constructor(
-    private service: BloodPressureService,
+    private service: BloodPressureApiService,
     private zone: NgZone,
     private router: Router
   ) {}

@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class BloodPressureService {
+export class BloodPressureApiService {
   constructor(private http: HttpClient) {}
 
   getAllBloodPressures(): Observable<IBloodPressureModel[]> {
