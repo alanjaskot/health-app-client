@@ -1,22 +1,19 @@
 <div class="main-container">
     <mat-card class="mat-card">
+        <mat-card-title>{{'Login' | uppercase }}</mat-card-title>
         <mat-card-content>
             <form [formGroup]="form">
                 <div class="row-container">
-                    <p>
                         <app-ui-text-input
                             label="login"
                             [control]="form.login"
                             [required]="true"
                         ></app-ui-text-input>
-                    </p>
-                    <p>
                         <app-ui-text-input
                             label="password"
                             [control]="form.password"
                             [required]="true"
                         ></app-ui-text-input>
-                    </p>
                 </div>
                 <div class="buttons-container">
                     <app-ui-button 

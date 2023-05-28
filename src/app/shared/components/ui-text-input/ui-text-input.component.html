@@ -1,4 +1,7 @@
-<mat-form-field fxFlex appearance="outline">
-    <mat-label>{{ label }}</mat-label>
-    <input [type]="type" matInput [formControl]="control" [required]="required" />
+<mat-form-field *ngIf="control" appearance="outline">
+  <mat-label> {{ label }}</mat-label>
+  <input [type]="type" matInput [formControl]="control" [required]="required" />
+  <mat-error>
+    {{ messages }}
+  </mat-error>
 </mat-form-field>

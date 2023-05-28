@@ -1,0 +1,31 @@
+.main-container {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-card {
+    width: 900px;
+    padding: 40px;
+}
+
+.row-container {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+}
+
+.buttons-container {
+    padding-left: 50px;
+    display: flex;
+    column-gap: 20px;
+}
+
+app-ui-text-input {
+    flex: 1;
+}
+
+app-ui-datepicker {
+    flex: 1;
+}

@@ -1,50 +1,57 @@
-<mat-card>
+<div class="main-container">
+<mat-card class="mat-card">
     <mat-card-content>
         <form [formGroup]="form">
-            <app-ui-text-input
-                label="diastolic pressure"
-                [control]="form.diastolicPressure"
-                [required]="true"
-                [type]="'number'"
-            ></app-ui-text-input>
-            <app-ui-text-input
-                label="systolic pressure"
-                [control]="form.systolicPressure"
-                [required]="true"
-                [type]="'number'"
-            ></app-ui-text-input>
-            <app-ui-text-input
-                label="pulse"
-                [control]="form.pulse"
-                [required]="true"
-                [type]="'number'"
-            ></app-ui-text-input>
+            <div class="row-container">
+                <app-ui-text-input
+                    label="diastolic pressure"
+                    [control]="form.diastolicPressure"
+                    [required]="true"
+                    [type]="'number'"
+                ></app-ui-text-input>
+                <app-ui-text-input
+                    label="systolic pressure"
+                    [control]="form.systolicPressure"
+                    [required]="true"
+                    [type]="'number'"
+                ></app-ui-text-input>
+            </div>
+            <div class="row-container">
+                <app-ui-text-input
+                    label="pulse"
+                    [control]="form.pulse"
+                    [required]="true"
+                    [type]="'number'"
+                ></app-ui-text-input>
+                <app-ui-datepicker
+                    [label]="'data pomiaru'"
+                    [control]="form.measurementAt"
+                    [required]="true"
+                ></app-ui-datepicker>
+            </div>
             <app-ui-select
                 label="medicines"
                 [isMultiple]="true"
                 [control]="form.medicines"
                 [options]="getAllMedicines$ | async"
             ></app-ui-select>
-            <app-ui-datepicker
-                [label]="'data pomiaru'"
-                [control]="form.measurementAt"
-                [required]="true"
-            ></app-ui-datepicker>
-            <app-ui-button 
-                [text]="'save'"
-                (click)="saveBloodPressure()"
-            ></app-ui-button>
-            <app-ui-button
-                *ngIf="form.id.value.length === 36"
-                [text]="'delete'"
-                [color]="'warn'"
-                (click)="deleteBloodPressure()"
-            ></app-ui-button>
-            <app-ui-button
-                [text]="'cancel'"
-                (click)="routeTo()"
-            ></app-ui-button>
-
+            <div class="buttons-container">
+                <app-ui-button 
+                    [text]="'save'"
+                    (click)="saveBloodPressure()"
+                ></app-ui-button>
+                <app-ui-button
+                    *ngIf="form.id.value.length === 36"
+                    [text]="'delete'"
+                    [color]="'warn'"
+                    (click)="deleteBloodPressure()"
+                ></app-ui-button>
+                <app-ui-button
+                    [text]="'cancel'"
+                    (click)="routeTo()"
+                ></app-ui-button>
+            </div>    
         </form>
     </mat-card-content>
 </mat-card>
+</div>
