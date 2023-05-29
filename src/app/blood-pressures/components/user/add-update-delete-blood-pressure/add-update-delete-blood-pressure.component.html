@@ -32,8 +32,10 @@
             <div class="row-container">
                 <app-ui-slide-toggle 
                   [control]="form.hasTakenMedicines"
-                  [label]="'has taken medicine?'"              
+                  [label]="'has taken medicine?'"
+                  (click)="changeFormValidation()"           
                 ></app-ui-slide-toggle>
+            {{ form.medicines.value }}
             </div>
             <app-ui-select
                 *ngIf="form.hasTakenMedicines.value"

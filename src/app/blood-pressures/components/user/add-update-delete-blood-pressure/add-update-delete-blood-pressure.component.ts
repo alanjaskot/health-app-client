@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription, map } from 'rxjs';
@@ -23,7 +24,7 @@ import { IIdName } from 'src/app/shared/models/id-name';
 export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy {
   @Select(MedicineState.medicinesFetched) getAllMedicines$: Observable<IIdName>;
 
-  form: BloodPressureForm;
+  form: BloodPressureForm = new BloodPressureForm();
 
   private id: string;
   private subscription = new Subscription();
@@ -44,6 +45,10 @@ export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy 
   }
 
   saveBloodPressure(): void {
+    if (!this.form.valid) {
+      return;
+    }
+
     if (this.form.id.value.length === 36) {
       this.updateBloodPressure();
     } else {
@@ -57,6 +62,17 @@ export class AddUpdateDeleteBloodPressureComponent implements OnInit, OnDestroy 
 
   routeTo(): void {
     this.router.navigate(['/blood-pressure/list']);
+  }
+
+  changeFormValidation() {
+    if (this.form.hasTakenMedicines.value) {
+      this.form.medicines.setValidators(Validators.required);
+      this.form.medicines.updateValueAndValidity();
+    } else {
+      this.form.medicines.setValidators(null);
+      this.form.medicines.setValue(null);
+      this.form.updateValueAndValidity();
+    }
   }
 
   private addBloodPressure(): void {

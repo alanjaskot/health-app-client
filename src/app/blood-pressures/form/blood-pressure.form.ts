@@ -12,8 +12,8 @@ export class BloodPressureForm extends UntypedFormGroup {
   readonly systolicPressure = this.get('systolicPressure') as UntypedFormControl;
   readonly pulse = this.get('pulse') as UntypedFormControl;
   readonly measurementAt = this.get('measurementAt') as UntypedFormControl;
-  readonly medicines = this.get('medicines') as UntypedFormControl;
   readonly hasTakenMedicines = this.get('hasTakenMedicines') as UntypedFormControl;
+  readonly medicines = this.get('medicines') as UntypedFormControl;
 
   constructor(
     bp?: IBloodPressureModel,
