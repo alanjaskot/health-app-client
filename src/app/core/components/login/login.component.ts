@@ -4,8 +4,6 @@ import { LoginForm } from '../../forms/login.form';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthUserApiService } from '../../services/auth-user-api.service';
-import { Store } from '@ngxs/store';
-import { Login } from '../../state/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +15,6 @@ export class LoginComponent implements OnDestroy {
   subscription = new Subscription();
 
   constructor(
-    private store: Store,
     private service: AuthUserApiService,
     private authService: AuthService,
     private router: Router
@@ -40,6 +37,14 @@ export class LoginComponent implements OnDestroy {
   }
 
   private requestLogin(): void {
-    this.store.dispatch(new Login(this.form.login.value, this.form.password.value));
+    this.subscription.add(
+      this.service
+        .login(this.form.value.login, this.form.value.password)
+        .subscribe((token: any) => {
+          this.authService.setType(token.result.type);
+          this.authService.setToken(token.result.token);
+          this.router.navigate(['/']);
+        })
+    );
   }
 }

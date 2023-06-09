@@ -7,34 +7,29 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 import { ITokenModel } from '../models/token.model';
-import { AuthState } from '../state/auth.state';
-import { Select } from '@ngxs/store';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  @Select(AuthState.getToken) getToken$: Observable<ITokenModel>;
-
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq = req;
-    let token: ITokenModel = { type: '', token: '' };
-
-    this.getToken$.subscribe((stateToken: ITokenModel) => {
-      if (token) {
-        token = stateToken;
-      }
-    });
-
-    authReq = req.clone({
-      headers: req.headers
-        .set(TOKEN_HEADER_KEY, token.type + ' ' + token.token)
-        .set('Content-Type', 'application/json'),
-    });
-
+    const token: ITokenModel = {
+      type: this.auth.getType(),
+      token: this.auth.getToken(),
+    };
+    if (token.token.length > 0) {
+      authReq = req.clone({
+        headers: req.headers
+          .set(TOKEN_HEADER_KEY, token.type + ' ' + token.token)
+          .set('Content-Type', 'application/json'),
+      });
+      console.log('token', token.type + '' + token.token);
+    }
     return next.handle(authReq);
   }
 }

@@ -12,8 +12,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import { NgxsModule } from '@ngxs/store';
-import { AuthState } from './state/auth.state';
 
 @NgModule({
   declarations: [
@@ -23,14 +21,7 @@ import { AuthState } from './state/auth.state';
     NavbarComponent,
     RegisterComponent,
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    SharedModule,
-    NgxsModule.forFeature([AuthState]),
-  ],
+  imports: [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule, SharedModule],
   providers: [AuthService, AuthUserApiService],
   exports: [DashboardComponent, LoginComponent, MainMenuComponent, NavbarComponent],
 })
