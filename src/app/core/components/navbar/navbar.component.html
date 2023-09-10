@@ -1,8 +1,24 @@
 <div class="body">
-    <p>{{ me.userName }}</p>
-    <app-ui-button 
-        [text]="'login'" 
-        (click)="routeTo()"
-        class="button"
-    ></app-ui-button>
+    <div class="logo">
+        <img src="assets/logo.jpg" alt="dupa" />
+    </div>
+    <div *ngIf="isLoggedIn" class="user-name">
+        <div class="center">
+             <!-- {{ me.userName }} -->
+        </div>
+        <div class="center">
+            <app-ui-button
+                [text]="'logout'"
+                (click)="logout()"
+            ></app-ui-button>
+            
+        </div>
+    </div>
+    <div *ngIf="!isLoggedIn" class="user-name">
+        <app-ui-button 
+            [text]="'login'" 
+            (click)="routeTo()"
+            class="button"
+        ></app-ui-button>
+    </div>
 </div>

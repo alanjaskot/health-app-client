@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavbarComponent } from '../components/navbar/navbar.component';
 
 const TOKEN_KEY = 'auth-token';
 const TOKEN_TYPE = 'token-type';
@@ -9,7 +11,7 @@ const TOKEN_TYPE = 'token-type';
 export class AuthService {
   check: string | any = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   signOut(): void {
     sessionStorage.clear();
@@ -18,6 +20,7 @@ export class AuthService {
   public setToken(token: string): void {
     sessionStorage.removeItem(TOKEN_KEY);
     sessionStorage.setItem(TOKEN_KEY, token);
+    this.router.navigate(['bmi']);
   }
 
   public getToken(): string {
@@ -30,6 +33,10 @@ export class AuthService {
     return '';
   }
 
+  public removeToken(): void {
+    sessionStorage.removeItem(TOKEN_KEY);
+  }
+
   public setType(type: string): void {
     sessionStorage.removeItem(TOKEN_TYPE);
     sessionStorage.setItem(TOKEN_TYPE, type);
@@ -39,12 +46,7 @@ export class AuthService {
     return sessionStorage.getItem(TOKEN_TYPE);
   }
 
-  public isLoggedIn(): boolean {
-    this.check = this.getToken();
-    if (this.check.length > 2) {
-      return true;
-    } else {
-      return false;
-    }
+  public removeType(): void {
+    sessionStorage.removeItem(TOKEN_TYPE);
   }
 }

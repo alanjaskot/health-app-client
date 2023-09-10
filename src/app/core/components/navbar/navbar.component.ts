@@ -1,35 +1,57 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserNameState } from '../../state/user.state';
 import { Observable, Subscription } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { IUserModel } from '../../models/user.model';
 import { GetMe } from '../../state/user.action';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
   @Select(UserNameState.getMe) fetchMe$: Observable<IUserModel>;
 
   me: IUserModel;
+  isLoggedIn = false;
 
   private subscription = new Subscription();
 
-  constructor(private router: Router, private store: Store) {}
+  constructor(private authService: AuthService, private router: Router, private store: Store) {}
 
   ngOnInit(): void {
-    this.getUserMe();
+    this.setUser();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
+  ngDoCheck(): void {
+    if (this.isLoggedIn == false) {
+      if (this.checkLogin()) this.getUserMe();
+    }
+  }
+
   routeTo(): void {
     this.router.navigate(['/login']);
+  }
+
+  logout(): void {
+    this.authService.removeType();
+    this.authService.removeToken();
+    this.setUser();
+    this.isLoggedIn = false;
+  }
+
+  private checkLogin(): boolean {
+    const token = this.authService.getToken();
+    if (token) return (this.isLoggedIn = true);
+
+    return false;
   }
 
   private getUserMe(): void {

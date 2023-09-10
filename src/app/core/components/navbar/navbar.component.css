@@ -1,8 +1,27 @@
 .body {
-    height: 50px;
+    display: flex;
+    height: 55px;
+}
+
+.logo {
+    width: 20%;
+    vertical-align: baseline;
+}
+
+.user-name {
+    flex-direction: row-reverse;
+    width: 80%;
+    text-align: right;
+    align-self: center;
+    margin-right: 30px;
+}
+
+.center {
+    flex-direction: row-reverse;
 }
 
 .button {
+    padding: 10px;
     display: flex;
     flex-direction: row-reverse;
 }

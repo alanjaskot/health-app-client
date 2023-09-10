@@ -4,6 +4,10 @@ import { LoginForm } from '../../forms/login.form';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthUserApiService } from '../../services/auth-user-api.service';
+import { Store } from '@ngxs/store';
+import { GetMe } from '../../state/user.action';
+import { UserNameState } from '../../state/user.state';
+import { IUserModel } from '../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +19,9 @@ export class LoginComponent implements OnDestroy {
   subscription = new Subscription();
 
   constructor(
-    private service: AuthUserApiService,
     private authService: AuthService,
-    private router: Router
+    private service: AuthUserApiService,
+    private store: Store
   ) {}
 
   ngOnDestroy(): void {
@@ -43,8 +47,16 @@ export class LoginComponent implements OnDestroy {
         .subscribe((token: any) => {
           this.authService.setType(token.result.type);
           this.authService.setToken(token.result.token);
-          this.router.navigate(['/']);
+          this.getUserMe();
         })
+    );
+  }
+
+  private getUserMe(): void {
+    this.subscription.add(
+      this.store.dispatch(new GetMe()).subscribe(() => {
+        this.store.select(UserNameState.getMe).subscribe((me: IUserModel) => {});
+      })
     );
   }
 }
