@@ -4,9 +4,6 @@
     </div>
     <div *ngIf="isLoggedIn" class="user-name">
         <div class="center">
-             <!-- {{ me.userName }} -->
-        </div>
-        <div class="center">
             <app-ui-button
                 [text]="'logout'"
                 (click)="logout()"

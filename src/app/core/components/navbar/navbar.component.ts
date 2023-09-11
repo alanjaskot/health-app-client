@@ -6,6 +6,7 @@ import { Select, Store } from '@ngxs/store';
 import { IUserModel } from '../../models/user.model';
 import { GetMe } from '../../state/user.action';
 import { AuthService } from '../../services/auth.service';
+import { AuthUserApiService } from '../../services/auth-user-api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,12 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
 
   private subscription = new Subscription();
 
-  constructor(private authService: AuthService, private router: Router, private store: Store) {}
+  constructor(
+    private auth: AuthUserApiService,
+    private authService: AuthService,
+    private router: Router,
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
     this.setUser();
@@ -40,7 +46,12 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
 
+  log(): void {
+    this.auth.logout();
+  }
+
   logout(): void {
+    this.auth.logout();
     this.authService.removeType();
     this.authService.removeToken();
     this.setUser();

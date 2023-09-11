@@ -19,8 +19,6 @@ const httpOptions = {
 })
 export class AuthUserApiService {
   public isLoggedIn = false;
-  type: string;
-  token: string;
 
   constructor(private http: HttpClient) {}
 
@@ -33,9 +31,9 @@ export class AuthUserApiService {
     return this.http.post<ITokenModel>(url, user, httpOptions);
   }
 
-  logout() {
+  logout(): Observable<boolean> {
     const url = `${envoirment.apiUrl}/auth/logout`;
-    return this.http.post(url, true, httpOptions);
+    return this.http.post<boolean>(url, httpOptions);
   }
 
   register(userName: string, password: string): void {
