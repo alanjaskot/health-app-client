@@ -14,7 +14,7 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="'fab'">
-        <button mat-fab [color]="color" [disabled]="disabled">
+        <button mat-fab [color]="color" [disabled]="disabled" class="fab">
             <mat-icon *ngIf="icon" [color]="iconColor"> {{ icon }} </mat-icon>
             {{ text }}
         </button>

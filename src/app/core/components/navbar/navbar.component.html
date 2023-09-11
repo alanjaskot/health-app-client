@@ -5,10 +5,10 @@
     <div *ngIf="isLoggedIn" class="user-name">
         <div class="center">
             <app-ui-button
-                [text]="'logout'"
-                (click)="logout()"
-            ></app-ui-button>
-            
+                    class="user-button"
+                    [text]="firstLetterUserName"
+                    [buttonType]="'fab'"
+                ></app-ui-button>        
         </div>
     </div>
     <div *ngIf="!isLoggedIn" class="user-name">

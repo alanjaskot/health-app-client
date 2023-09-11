@@ -17,6 +17,7 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
   @Select(UserNameState.getMe) fetchMe$: Observable<IUserModel>;
 
   me: IUserModel;
+  firstLetterUserName: string;
   isLoggedIn = false;
 
   private subscription = new Subscription();
@@ -46,10 +47,6 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
 
-  log(): void {
-    this.auth.logout();
-  }
-
   logout(): void {
     this.auth.logout();
     this.authService.removeType();
@@ -69,8 +66,10 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
     this.subscription.add(
       this.store.dispatch(new GetMe()).subscribe(() => {
         this.store.select(UserNameState.getMe).subscribe((me: IUserModel) => {
-          if (me) this.me = me;
-          else this.setUser();
+          if (me) {
+            this.me = me;
+            this.setFirstLetter();
+          } else this.setUser();
         });
       })
     );
@@ -86,5 +85,9 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
       lastLogin: new Date(),
       created: new Date(),
     };
+  }
+
+  private setFirstLetter(): void {
+    this.firstLetterUserName = this.me.userName[0].toUpperCase();
   }
 }
