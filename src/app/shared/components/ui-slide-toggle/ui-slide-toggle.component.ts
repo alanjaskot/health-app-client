@@ -5,7 +5,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-ui-slide-toggle',
   templateUrl: './ui-slide-toggle.component.html',
-  styleUrls: ['./ui-slide-toggle.component.css'],
+  styleUrls: ['./ui-slide-toggle.component.scss'],
 })
 export class UiSlideToggleComponent {
   @Input() label: string;

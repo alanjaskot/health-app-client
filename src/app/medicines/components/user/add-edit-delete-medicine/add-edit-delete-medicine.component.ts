@@ -15,7 +15,7 @@ import { MedicineState } from 'src/app/medicines/state/medicine.state';
 @Component({
   selector: 'app-add-edit-delete-medicine',
   templateUrl: './add-edit-delete-medicine.component.html',
-  styleUrls: ['./add-edit-delete-medicine.component.css'],
+  styleUrls: ['./add-edit-delete-medicine.component.scss'],
 })
 export class AddEditDeleteMedicineComponent implements OnInit {
   id: string;

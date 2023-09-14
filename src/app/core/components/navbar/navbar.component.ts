@@ -11,7 +11,7 @@ import { AuthUserApiService } from '../../services/auth-user-api.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
   @Select(UserNameState.getMe) fetchMe$: Observable<IUserModel>;

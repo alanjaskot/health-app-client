@@ -5,7 +5,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 @Component({
   selector: 'app-ui-datepicker',
   templateUrl: './ui-datepicker.component.html',
-  styleUrls: ['./ui-datepicker.component.css'],
+  styleUrls: ['./ui-datepicker.component.scss'],
 })
 export class UiDatepickerComponent {
   @Input() label = '';
