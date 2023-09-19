@@ -18,32 +18,32 @@ export class BmiApiService {
   constructor(private http: HttpClient) {}
 
   getBmis(): Observable<IBmiModel[]> {
-    const url = `https://localhost:5001/api/bmi`;
+    const url = `https://localhost:5001/api/health/bmi`;
     return this.http.get<IBmiModel[]>(url, httpOptions);
   }
 
   getDeletedBmis(userId: string, isDeleted: boolean): Observable<IBmiModel[]> {
-    const url = `${envoirment.apiUrl}/bmi/deleted?userId=${userId}&isDeleted=${isDeleted}`;
+    const url = `${envoirment.apiUrl}/health/bmi/deleted?userId=${userId}&isDeleted=${isDeleted}`;
     return this.http.get<IBmiModel[]>(url, httpOptions);
   }
 
   getBmiById(id: string): Observable<IBmiModel> {
-    const url = `${envoirment.apiUrl}/bmi/${id}`;
+    const url = `${envoirment.apiUrl}/health/bmi/${id}`;
     return this.http.get<IBmiModel>(url, httpOptions);
   }
 
   addBmi(toCreate: IBmiModel): Observable<IBmiModel> {
-    const url = `${envoirment.apiUrl}/bmi`;
+    const url = `${envoirment.apiUrl}/health/bmi`;
     return this.http.post<IBmiModel>(url, toCreate, httpOptions);
   }
 
   updateBmi(toUpdate: IBmiModel): Observable<IBmiModel> {
-    const url = `${envoirment.apiUrl}/bmi`;
+    const url = `${envoirment.apiUrl}/health/bmi`;
     return this.http.put<IBmiModel>(url, toUpdate, httpOptions);
   }
 
   deleteBmi(id: string): Observable<string> {
-    const url = `${envoirment.apiUrl}/bmi/${id}`;
+    const url = `${envoirment.apiUrl}/health/bmi/${id}`;
     return this.http.delete<string>(url, httpOptions);
   }
 }

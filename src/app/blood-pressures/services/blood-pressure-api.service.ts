@@ -18,32 +18,32 @@ export class BloodPressureApiService {
   constructor(private http: HttpClient) {}
 
   getAllBloodPressures(): Observable<IBloodPressureModel[]> {
-    const url = `${envoirment.apiUrl}/blood-pressure`;
+    const url = `${envoirment.apiUrl}/health/blood-pressure`;
     return this.http.get<IBloodPressureModel[]>(url, httpOptions);
   }
 
   getDeletedBloodPressures(id: string, isDeleted: boolean): Observable<IBloodPressureModel[]> {
-    const url = `${envoirment.apiUrl}/blood-pressure/get-deleted?userId=${id}&isDeleted=${isDeleted}`;
+    const url = `${envoirment.apiUrl}/health/blood-pressure/get-deleted?userId=${id}&isDeleted=${isDeleted}`;
     return this.http.get<IBloodPressureModel[]>(url, httpOptions);
   }
 
   getBloodPressureById(id: string): Observable<IBloodPressureModel> {
-    const url = `${envoirment.apiUrl}/blood-pressure/${id}`;
+    const url = `${envoirment.apiUrl}/health/blood-pressure/${id}`;
     return this.http.get<IBloodPressureModel>(url, httpOptions);
   }
 
   addBloodPressure(toCreate: IBloodPressureModel): Observable<IBloodPressureModel> {
-    const url = `${envoirment.apiUrl}/blood-pressure`;
+    const url = `${envoirment.apiUrl}/health/blood-pressure`;
     return this.http.post<IBloodPressureModel>(url, toCreate, httpOptions);
   }
 
   updateBloodPressure(toUpdate: IBloodPressureModel): Observable<IBloodPressureModel> {
-    const url = `${envoirment.apiUrl}/blood-pressure`;
+    const url = `${envoirment.apiUrl}/health/blood-pressure`;
     return this.http.put<IBloodPressureModel>(url, toUpdate, httpOptions);
   }
 
   deleteBloodPressure(id: string): Observable<boolean> {
-    const url = `${envoirment.apiUrl}/blood-pressure/${id}`;
+    const url = `${envoirment.apiUrl}/halth/blood-pressure/${id}`;
     return this.http.delete<boolean>(url, httpOptions);
   }
 }
