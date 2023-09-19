@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../components/navbar/navbar.component';
 
 const TOKEN_KEY = 'auth-token';
 const TOKEN_TYPE = 'token-type';
@@ -48,5 +47,13 @@ export class AuthService {
 
   public removeType(): void {
     sessionStorage.removeItem(TOKEN_TYPE);
+  }
+
+  public isLoggedIn(): boolean {
+    const token = sessionStorage.getItem(TOKEN_KEY);
+    if ( token.length > 1 )
+      return true; 
+
+    return false;
   }
 }

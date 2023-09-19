@@ -43,11 +43,15 @@ export class NavbarComponent implements DoCheck, OnInit, OnDestroy {
     }
   }
 
-  routeTo(): void {
+  public routeTo(): void {
     this.router.navigate(['/login']);
   }
 
-  logout(): void {
+  public routeToDashboard(): void {
+    this.router.navigate(['']);
+  }
+
+  public logout(): void {
     this.auth.logout();
     this.authService.removeType();
     this.authService.removeToken();

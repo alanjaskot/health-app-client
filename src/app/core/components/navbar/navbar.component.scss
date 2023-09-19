@@ -1,11 +1,13 @@
 .body {
     display: flex;
-    height: 55px;
+    height: 80px;
+    
 }
 
 .logo {
-    width: 20%;
-    vertical-align: baseline;
+    padding-top: 13px;
+    padding-left: 15px;
+    box-shadow: -6px 0 white, 6px 0 white, 0 7px 5px -2px black;
 }
 
 .user-name {

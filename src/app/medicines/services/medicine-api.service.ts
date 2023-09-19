@@ -33,7 +33,7 @@ export class MedicineApiService {
   }
 
   addMedicine(toCreate: IMedicineModel): Observable<IMedicineModel> {
-    const url = `${envoirment.apiUrl}/health/medicine/new`;
+    const url = `${envoirment.apiUrl}/health/medicine`;
     return this.http.post<IMedicineModel>(url, toCreate, httpOptions);
   }
 
