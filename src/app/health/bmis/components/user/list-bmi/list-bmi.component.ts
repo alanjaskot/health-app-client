@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { IBmiModel } from 'src/app/bmis/models/bmi.model';
-import { LoadBmis } from 'src/app/bmis/state/bmi.actions';
-import { BmiState } from 'src/app/bmis/state/bmi.state';
+import { IBmiModel } from '../../../models/bmi.model';
+import { LoadBmis } from '../../../state/bmi.actions';
+import { BmiState } from '../../../state/bmi.state';
 
 @Component({
   selector: 'app-list-bmi',

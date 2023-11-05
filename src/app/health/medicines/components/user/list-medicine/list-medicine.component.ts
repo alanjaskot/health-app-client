@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MedicineApiService } from 'src/app/medicines/services/medicine-api.service';
+import { MedicineApiService } from '../../../services/medicine-api.service';
 
 @Component({
   selector: 'app-list-medicine',

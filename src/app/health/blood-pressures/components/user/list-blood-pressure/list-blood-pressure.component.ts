@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { IBloodPressureModel } from 'src/app/blood-pressures/models/blood-pressure.model';
-import { BloodPressureApiService } from 'src/app/blood-pressures/services/blood-pressure-api.service';
-import { BloodPressureState } from 'src/app/blood-pressures/state/blood-pressure.state';
+import { BloodPressureState } from '../../../state/blood-pressure.state';
+import { IBloodPressureModel } from '../../../models/blood-pressure.model';
+import { BloodPressureApiService } from '../../../services/blood-pressure-api.service';
 
 @Component({
   selector: 'app-list-blood-pressure',

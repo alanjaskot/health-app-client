@@ -8,10 +8,10 @@ import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { authInterceptorProviders } from './core/services/auth.interceptor';
-import { MedicineState } from './medicines/state/medicine.state';
 import { envoirment } from 'src/environments/envoirment.dev';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './core/services/error.interceptor';
+import { MedicineState } from './health/medicines/state/medicine.state';
 
 @NgModule({
   declarations: [AppComponent],

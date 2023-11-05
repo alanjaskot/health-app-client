@@ -3,18 +3,13 @@ import { Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription, map } from 'rxjs';
-import { BloodPressureForm } from 'src/app/blood-pressures/form/blood-pressure.form';
-import { IBloodPressureModel } from 'src/app/blood-pressures/models/blood-pressure.model';
-import {
-  AddBloodPressure,
-  DeleteBloodPressure,
-  LoadBloodPressureById,
-  UpdateBloodPressure,
-} from 'src/app/blood-pressures/state/blood-pressure.actions';
-import { BloodPressureState } from 'src/app/blood-pressures/state/blood-pressure.state';
-import { LoadMedicines } from 'src/app/medicines/state/medicine.actions';
-import { MedicineState } from 'src/app/medicines/state/medicine.state';
 import { IIdName } from 'src/app/shared/models/id-name';
+import { BloodPressureForm } from '../../../form/blood-pressure.form';
+import { AddBloodPressure, DeleteBloodPressure, LoadBloodPressureById, UpdateBloodPressure } from '../../../state/blood-pressure.actions';
+import { IBloodPressureModel } from '../../../models/blood-pressure.model';
+import { BloodPressureState } from '../../../state/blood-pressure.state';
+import { LoadMedicines } from 'src/app/health/medicines/state/medicine.actions';
+import { MedicineState } from 'src/app/health/medicines/state/medicine.state';
 
 @Component({
   selector: 'app-add-update-delete-blood-pressure',

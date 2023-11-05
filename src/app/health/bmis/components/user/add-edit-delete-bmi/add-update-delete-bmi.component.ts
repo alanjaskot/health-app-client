@@ -3,10 +3,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BmiForm } from 'src/app/bmis/forms/bmi.form';
-import { IBmiModel } from 'src/app/bmis/models/bmi.model';
-import { AddBmi, DeleteBmi, LoadBmiById, UpdateBmi } from 'src/app/bmis/state/bmi.actions';
-import { BmiState } from 'src/app/bmis/state/bmi.state';
+import { BmiForm } from '../../../forms/bmi.form';
+import { IBmiModel } from '../../../models/bmi.model';
+import { UpdateBmi, AddBmi, DeleteBmi, LoadBmiById } from '../../../state/bmi.actions';
+import { BmiState } from '../../../state/bmi.state';
 
 @Component({
   selector: 'app-add-update-delete-bmi',

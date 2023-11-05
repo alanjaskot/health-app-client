@@ -8,15 +8,15 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegisterComponent },
-  { path: 'bmi', loadChildren: () => import('./bmis/bmi.module').then((m) => m.BmiModule) },
+  { path: 'bmi', loadChildren: () => import('./health/bmis/bmi.module').then((m) => m.BmiModule) },
   {
     path: 'blood-pressure',
     loadChildren: () =>
-      import('./blood-pressures/blood-pressure.module').then((m) => m.BloodPressureModule),
+      import('./health/blood-pressures/blood-pressure.module').then((m) => m.BloodPressureModule),
   },
   {
     path: 'medicine',
-    loadChildren: () => import('./medicines/medicine.module').then((m) => m.MedicineModule),
+    loadChildren: () => import('./health/medicines/medicine.module').then((m) => m.MedicineModule),
   },
 ];
 

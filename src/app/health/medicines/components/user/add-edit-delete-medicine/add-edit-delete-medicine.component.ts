@@ -2,15 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Subscription, map } from 'rxjs';
-import { MedicineForm } from 'src/app/medicines/form/medicine.form';
-import { IMedicineModel } from 'src/app/medicines/models/medicine.model';
-import {
-  AddMedicine,
-  DeleteMedicine,
-  LoadMedicineById,
-  UpdateMedicine,
-} from 'src/app/medicines/state/medicine.actions';
-import { MedicineState } from 'src/app/medicines/state/medicine.state';
+import { MedicineForm } from '../../../form/medicine.form';
+import { IMedicineModel } from '../../../models/medicine.model';
+import { UpdateMedicine, AddMedicine, DeleteMedicine, LoadMedicineById } from '../../../state/medicine.actions';
+import { MedicineState } from '../../../state/medicine.state';
 
 @Component({
   selector: 'app-add-edit-delete-medicine',
