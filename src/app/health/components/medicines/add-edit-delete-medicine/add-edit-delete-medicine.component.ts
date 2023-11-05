@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Subscription, map } from 'rxjs';
-import { MedicineForm } from '../../../form/medicine.form';
+import { MedicineForm } from '../../../forms/medicine.form';
 import { IMedicineModel } from '../../../models/medicine.model';
 import { UpdateMedicine, AddMedicine, DeleteMedicine, LoadMedicineById } from '../../../state/medicine.actions';
 import { MedicineState } from '../../../state/medicine.state';

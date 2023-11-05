@@ -10,14 +10,14 @@ export class MainMenuComponent {
   constructor(private router: Router) {}
 
   routeToBmi(): void {
-    this.router.navigate(['/bmi/list']);
+    this.router.navigate(['/health/bmi/list']);
   }
 
   routeToBloodPressure(): void {
-    this.router.navigate(['blood-pressure/list']);
+    this.router.navigate(['/health/blood-pressure/list']);
   }
 
   routeToMedicine(): void {
-    this.router.navigate(['medicine/list']);
+    this.router.navigate(['/health/medicine/list']);
   }
 }

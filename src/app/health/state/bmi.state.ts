@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
 import { IBmiModel } from '../models/bmi.model';
 import { Injectable, NgZone } from '@angular/core';
-import { BmiApiService } from '../service/bmi-api.service';
+import { BmiApiService } from '../services/bmi-api.service';
 import { Router } from '@angular/router';
 import {
   AddBmi,

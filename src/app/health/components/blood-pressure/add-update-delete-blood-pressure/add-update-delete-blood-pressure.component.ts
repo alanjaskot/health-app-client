@@ -4,12 +4,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription, map } from 'rxjs';
 import { IIdName } from 'src/app/shared/models/id-name';
-import { BloodPressureForm } from '../../../form/blood-pressure.form';
+import { BloodPressureForm } from '../../../forms/blood-pressure.form';
 import { AddBloodPressure, DeleteBloodPressure, LoadBloodPressureById, UpdateBloodPressure } from '../../../state/blood-pressure.actions';
 import { IBloodPressureModel } from '../../../models/blood-pressure.model';
 import { BloodPressureState } from '../../../state/blood-pressure.state';
-import { LoadMedicines } from 'src/app/health/medicines/state/medicine.actions';
-import { MedicineState } from 'src/app/health/medicines/state/medicine.state';
+import { LoadMedicines } from 'src/app/health/state/medicine.actions';
+import { MedicineState } from 'src/app/health/state/medicine.state';
 
 @Component({
   selector: 'app-add-update-delete-blood-pressure',
