@@ -8,6 +8,9 @@
     <ng-container *ngSwitchCase="'measurement at'">
         {{ element.measurementAt | date }}
     </ng-container>
+    <ng-container *ngSwitchCase="'medical dosage'">
+        {{ element.medicalDosage }}
+    </ng-container>
     <ng-container *ngSwitchDefault>
         {{ element[columnName] }}
     </ng-container>
