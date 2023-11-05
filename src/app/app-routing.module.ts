@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'medicine',
     loadChildren: () => import('./health/medicines/medicine.module').then((m) => m.MedicineModule),
   },
+  {
+    path: 'finance',
+    loadChildren: () => import('./finances/finances.module').then((m) => m.FInancesModule),
+  }
 ];
 
 @NgModule({

@@ -12,9 +12,10 @@ import { envoirment } from 'src/environments/envoirment.dev';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './core/services/error.interceptor';
 import { MedicineState } from './health/medicines/state/medicine.state';
+import { FinancesComponent } from './finances/finances.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FinancesComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
