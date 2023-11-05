@@ -2,32 +2,25 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-shared-table',
+  selector: 'app-ui-table',
   templateUrl: './ui-table.component.html',
   styleUrls: ['./ui-table.component.scss'],
 })
 export class UiTableComponent {
+  @Input() title: string;
   @Input() urlForRow = '';
   @Input() displayedColumns: string[];
   @Input() dataTable: any[];
 
   constructor(private router: Router) {}
 
-  routeTo(id: string): void {
-    console.log('id to =>', id);
-    const url = `${this.urlForRow}/${id}`;
+  routeTo(row: any): void {
+    console.log('id to =>', row.id);
+    const url = `${this.urlForRow}/${row.id}`;
     this.router.navigate([url]);
   }
 
-  isObjectArray(object: any): boolean {
+  isObjectAnArray(object: any): boolean {
     return Array.isArray(object);
-  }
-
-  displayingColumnsNames(): string {
-    return JSON.stringify(this.dataTable);
-  }
-
-  handleRowClick(row: any): void {
-
   }
 }

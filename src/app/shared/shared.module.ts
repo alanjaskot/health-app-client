@@ -9,6 +9,7 @@ import { UiSelectGroupComponent } from './components/ui-select/ui-select.compone
 import { UiDatepickerComponent } from './components/ui-datepicker/ui-datepicker.component';
 import { UiSlideToggleComponent } from './components/ui-slide-toggle/ui-slide-toggle.component';
 import { RouterModule } from '@angular/router';
+import { TableTemplateComponent } from './components/ui-table/table-template/table-template.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, MaterialModule, ReactiveFormsModule, RouterModule ],
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     UiSlideToggleComponent,
     UiTableComponent,
     UiTextInputComponent,
+    TableTemplateComponent,
   ],
   exports: [
     UiButtonComponent,

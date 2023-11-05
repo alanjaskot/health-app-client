@@ -1,0 +1,14 @@
+<ng-container [ngSwitch]="columnName">
+    <ng-container *ngSwitchCase="'diastolic pressure'">
+        {{ element.diastolicPressure }}
+    </ng-container>
+    <ng-container *ngSwitchCase="'systolic pressure'">
+        {{ element.systolicPressure }}
+    </ng-container>
+    <ng-container *ngSwitchCase="'measurement at'">
+        {{ element.measurementAt | date }}
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        {{ element[columnName] }}
+    </ng-container>
+</ng-container>

@@ -1,3 +1,12 @@
 <app-ui-button [text]="'new'" (click)="routeTo()"></app-ui-button>
+<mat-card class="card">
+    <mat-card-content>
+        <app-ui-table 
+            [title]="'blood pressure'" 
+            [urlForRow]="url" 
+            [displayedColumns]="columnsToDisplay" 
+            [dataTable]="data$ | async"
+        ></app-ui-table>
+    </mat-card-content>
+</mat-card>
 
-<app-shared-table [urlForRow]="url" [displayedColumns]="columnsToDisplay" [dataTable]="data$ | async"></app-shared-table>
