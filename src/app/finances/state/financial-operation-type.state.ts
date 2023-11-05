@@ -31,7 +31,7 @@ export class FinancialOperationTypeState {
   ) {}
 
   @Action(LoadFinancialOperationType, { cancelUncompleted: true })
-  loadBloodPressures({ getState, setState }: StateContext<FinancialOperationTypeStateModel>) {
+  loadFinancialOperationType({ getState, setState }: StateContext<FinancialOperationTypeStateModel>) {
     return this.service.getAllCategories().pipe(
       tap((types: IFinancialOperationType[]) => {
         const state = getState();

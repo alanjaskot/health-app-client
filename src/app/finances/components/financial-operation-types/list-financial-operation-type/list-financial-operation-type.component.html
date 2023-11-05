@@ -1,0 +1,12 @@
+<app-ui-button [text]="'new'" (click)="routeTo()"></app-ui-button>
+
+<mat-card class="card">
+    <mat-card-content>
+        <app-ui-table
+            [title]="'financial operation types'"
+            [displayedColumns]="columnsToDisplay"
+            [dataTable]="data$ | async"
+            [urlForRow]="url"
+        ></app-ui-table>
+    </mat-card-content>
+</mat-card>

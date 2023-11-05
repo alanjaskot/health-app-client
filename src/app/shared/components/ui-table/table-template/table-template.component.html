@@ -11,6 +11,10 @@
     <ng-container *ngSwitchCase="'medical dosage'">
         {{ element.medicalDosage }}
     </ng-container>
+    <ng-container *ngSwitchCase="'type'">
+        <div *ngIf="element.financeType === 0" class="costs">Expenses</div>
+        <div *ngIf="element.financeType === 1" class="income">Revenues</div>
+    </ng-container>
     <ng-container *ngSwitchDefault>
         {{ element[columnName] }}
     </ng-container>
