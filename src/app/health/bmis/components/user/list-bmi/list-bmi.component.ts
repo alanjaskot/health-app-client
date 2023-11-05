@@ -14,6 +14,7 @@ import { BmiState } from '../../../state/bmi.state';
 export class ListBmiComponent implements OnInit {
   @Select(BmiState.bmiFetched) data$: Observable<IBmiModel[]>;
   columnsToDisplay: string[] = ['bmi', 'height', 'weight'];
+  url: string = '/bmi';
 
   constructor(private store: Store, private router: Router) {}
 
