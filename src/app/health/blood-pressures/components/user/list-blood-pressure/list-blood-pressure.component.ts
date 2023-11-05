@@ -16,7 +16,8 @@ export class ListBloodPressureComponent implements OnInit {
   fetchBloodPressures$: Observable<IBloodPressureModel>[];
   data$: Observable<IBloodPressureModel[]>;
 
-  columnsToDisplay = ['diastolic pressure', 'systolic pressure', 'pulse', 'measurement at'];
+  columnsToDisplay: string[] = ['diastolicPressure', 'systolicPressure', 'pulse', 'measurementAt'];
+  url: string = "dupa";
 
   constructor(private service: BloodPressureApiService, private router: Router) {}
 

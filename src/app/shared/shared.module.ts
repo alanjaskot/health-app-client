@@ -8,9 +8,10 @@ import { UiTableComponent } from './components/ui-table/ui-table.component';
 import { UiSelectGroupComponent } from './components/ui-select/ui-select.component';
 import { UiDatepickerComponent } from './components/ui-datepicker/ui-datepicker.component';
 import { UiSlideToggleComponent } from './components/ui-slide-toggle/ui-slide-toggle.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, MaterialModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, MaterialModule, ReactiveFormsModule, RouterModule ],
   declarations: [
     UiButtonComponent,
     UiDatepickerComponent,

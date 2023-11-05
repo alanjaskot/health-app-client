@@ -1,26 +1,3 @@
 <app-ui-button [text]="'new'" (click)="routeTo()"></app-ui-button>
 
-<table mat-table [dataSource]="data$ | async">
-    <ng-container matColumnDef="diastolic pressure">
-        <th mat-header-cell *matHeaderCellDef> Diastolic Pressure </th>
-        <td mat-cell *matCellDef="let element"> {{element.diastolicPressure}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="systolic pressure">
-        <th mat-header-cell *matHeaderCellDef> Systolic Pressure </th>
-        <td mat-cell *matCellDef="let element"> {{element.systolicPressure}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="pulse">
-        <th mat-header-cell *matHeaderCellDef> Pulse </th>
-        <td mat-cell *matCellDef="let element"> {{element.pulse}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="measurement at">
-        <th mat-header-cell *matHeaderCellDef> Measurement at </th>
-        <td mat-cell *matCellDef="let element"> {{element.measurementAt | date}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
-</table>
+<app-shared-table [urlForRow]="url" [displayedColumns]="columnsToDisplay" [dataTable]="data$ | async"></app-shared-table>
