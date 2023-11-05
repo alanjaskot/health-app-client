@@ -21,11 +21,6 @@ export class FinancialOperationTypeApiService {
         const url = `${envoirment.apiUrl}/finance/category`;
         return this.http.get<IFinancialOperationType[]>(url, httpOptions);
     }
-    
-    getCategoryById(id: string): Observable<IFinancialOperationType> {
-        const url = `${envoirment.apiUrl}/finance/category/${id}`;
-        return this.http.get<IFinancialOperationType>(url, httpOptions);
-    }
 
     addCategory(toCreate: IFinancialOperationType): Observable<IFinancialOperationType> {
         const url = `${envoirment.apiUrl}/finance/category`;
@@ -37,8 +32,8 @@ export class FinancialOperationTypeApiService {
         return this.http.put<IFinancialOperationType>(url, toUpdate, httpOptions);
     }
 
-    deleteCategory(id: string): void {
+    deleteCategory(id: string): Observable<boolean> {
         const url = `${envoirment.apiUrl}/finance/category/${id}`;
-        this.http.delete(url, httpOptions);
+        return this.http.delete<boolean>(url, httpOptions);
     }
 }
