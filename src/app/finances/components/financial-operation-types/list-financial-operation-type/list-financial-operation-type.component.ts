@@ -24,6 +24,6 @@ export class ListFinancialOperationTypeComponent implements OnInit {
   }
 
   routeTo(): void {
-    this.router.navigate([FinanceRoutes.OPERATION_TYPE_NEW]);
+    this.router.navigate([`/finances/${FinanceRoutes.OPERATION_TYPE_NEW}`]);
   }
 }

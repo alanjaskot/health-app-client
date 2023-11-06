@@ -5,6 +5,11 @@ export class LoadFinancialOperationType {
   constructor() {}
 }
 
+export class LoadFinancialOperationTypeById {
+  static type = '[Finance Operation Type] Fetch Finance Operation Type By Id';
+  constructor(public id: string) {}
+}
+
 export class AddFinancialOperationType {
   static type = '[Finance Operation Type] Add Finance Operation Type';
   constructor(public toCreate: IFinancialOperationType) {}

@@ -22,6 +22,11 @@ export class FinancialOperationTypeApiService {
         return this.http.get<IFinancialOperationType[]>(url, httpOptions);
     }
 
+    getCategoryById(id: string): Observable<IFinancialOperationType> {
+        const url = `${envoirment.apiUrl}/finance/category/${id}`;
+        return this.http.get<IFinancialOperationType>(url, httpOptions);
+    }
+
     addCategory(toCreate: IFinancialOperationType): Observable<IFinancialOperationType> {
         const url = `${envoirment.apiUrl}/finance/category`;
         return this.http.post<IFinancialOperationType>(url, toCreate, httpOptions);

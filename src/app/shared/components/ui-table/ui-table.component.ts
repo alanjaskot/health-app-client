@@ -15,7 +15,6 @@ export class UiTableComponent {
   constructor(private router: Router) {}
 
   routeTo(row: any): void {
-    console.log('id to =>', row.id);
     const url = `${this.urlForRow}/${row.id}`;
     this.router.navigate([url]);
   }
