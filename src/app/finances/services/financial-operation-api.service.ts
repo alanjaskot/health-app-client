@@ -32,7 +32,7 @@ export class FinancialOperationApiService {
         return this.http.get<IFinancialOperation[]>(url, httpOptions);
     }
 
-    getOperationId(id: string): Observable<IFinancialOperation> {
+    getOperationById(id: string): Observable<IFinancialOperation> {
         const url = `${envoirment.apiUrl}/finance/operation/${id}`;
         return this.http.get<IFinancialOperation>(url, httpOptions);
     }
@@ -47,9 +47,9 @@ export class FinancialOperationApiService {
         return this.http.put<IFinancialOperation>(url, toUpdate, httpOptions);
     }
 
-    deleteOperation(id: string): void {
+    deleteOperation(id: string): Observable<IFinancialOperation> {
         const url = `${envoirment.apiUrl}/finance/operation/${id}`;
-        this.http.delete(url, httpOptions);
+        return this.http.delete<IFinancialOperation>(url, httpOptions);
     }
 
     undoDeleteOperation(id: string): Observable<IFinancialOperation> {

@@ -13,7 +13,7 @@ export interface FinancialOperationTypeStateModel {
   types: IFinancialOperationType[];
 }
 
-const FLINANCIAL_OPERATION_TYPE_STATE_TOKEN = new StateToken<FinancialOperationTypeStateModel>('financialOperationTypeSate');
+const FLINANCIAL_OPERATION_TYPE_STATE_TOKEN = new StateToken<FinancialOperationTypeStateModel>('financialOperationTypeState');
 
 @State<FinancialOperationTypeStateModel>({
   name: FLINANCIAL_OPERATION_TYPE_STATE_TOKEN,
