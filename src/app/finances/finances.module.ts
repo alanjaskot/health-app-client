@@ -11,11 +11,16 @@ import { ListFinancialOperationTypeComponent } from "./components/financial-oper
 import { AddUpdateDeleteFinancialOperationTypeComponent } from "./components/financial-operation-types/add-update-delete-financial-operation-type/add-update-delete-financial-operation-type.component";
 import { FinancialOperationTypeState } from "./state/financial-operation-type.state";
 import { NgxsModule } from "@ngxs/store";
+import { AddUpdateDeleteFinancialOperationComponent } from "./components/financial-operation/add-update-delete-financial-operation/add-update-delete-financial-operation.component";
+import { ListFinancialOperationComponent } from "./components/financial-operation/list-financial-operation/list-financial-operation.component";
+import { FinancialOperationState } from "./state/financial-operation.state";
 
 @NgModule({
   declarations: [
-    ListFinancialOperationTypeComponent,
-    AddUpdateDeleteFinancialOperationTypeComponent
+    AddUpdateDeleteFinancialOperationComponent,
+    AddUpdateDeleteFinancialOperationTypeComponent,
+    ListFinancialOperationComponent,
+    ListFinancialOperationTypeComponent
   ],
   imports: [
     FinancesRoutingModule,
@@ -24,7 +29,7 @@ import { NgxsModule } from "@ngxs/store";
     MaterialModule,
     ReactiveFormsModule,
     SharedModule,
-    NgxsModule.forFeature([FinancialOperationTypeState]),
+    NgxsModule.forFeature([FinancialOperationState, FinancialOperationTypeState]),
   ],
   providers: [FinancialOperationApiService, FinancialOperationTypeApiService],
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { FullPathRoutesEnum } from 'src/app/core/enums/full-path-routes.enum';
 import { FinanceRoutes } from 'src/app/finances/enums/finance-routes.enum';
 import { IFinancialOperationType } from 'src/app/finances/models/financial-operation-type';
 import { LoadFinancialOperationType } from 'src/app/finances/state/financial-operation-type.action';
@@ -24,6 +25,6 @@ export class ListFinancialOperationTypeComponent implements OnInit {
   }
 
   routeTo(): void {
-    this.router.navigate([`/finances/${FinanceRoutes.OPERATION_TYPE_NEW}`]);
+    this.router.navigate([`/${FullPathRoutesEnum.FINANCES_OPERATION_TYPE_NEW}`]);
   }
 }

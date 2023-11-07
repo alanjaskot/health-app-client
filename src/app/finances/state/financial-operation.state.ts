@@ -25,7 +25,7 @@ const FLINANCIAL_OPERATION_STATE_TOKEN = new StateToken<FinancialOperationStateM
   },
 })
 @Injectable({ providedIn: 'root' })
-export class FInancialOperationState {
+export class FinancialOperationState {
     constructor(
         private service: FinancialOperationApiService,
         private zone: NgZone,

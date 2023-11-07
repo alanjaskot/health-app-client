@@ -15,6 +15,13 @@
         <div *ngIf="element.financeType === 0" class="costs">Expenses</div>
         <div *ngIf="element.financeType === 1" class="income">Revenues</div>
     </ng-container>
+    <ng-container *ngSwitchCase="'financial category'">
+        <div *ngIf="element.amount > 0" class="income">{{ element.financialCategory.name }}</div>
+        <div *ngIf="element.amount <= 0" class="costs">{{ element.financialCategory.name }}</div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'created'">
+        {{ element.created | date }}
+    </ng-container>
     <ng-container *ngSwitchDefault>
         {{ element[columnName] }}
     </ng-container>

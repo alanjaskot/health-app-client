@@ -18,7 +18,7 @@ export class FinancialOperationApiService {
     constructor(private http: HttpClient) {}
 
     getOperationsByPages(pageSize: number, pageNumber: number): Observable<IFinancialOperation[]> {
-        const url = `${envoirment.apiUrl}/finance/operations/${pageSize}&${pageNumber}`;
+        const url = `${envoirment.apiUrl}/finance/operation/${pageSize}&${pageNumber}`;
         return this.http.get<IFinancialOperation[]>(url, httpOptions);
     }
 
