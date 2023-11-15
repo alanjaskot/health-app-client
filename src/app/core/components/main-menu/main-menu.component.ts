@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FullPathRoutesEnum } from '../../enums/full-path-routes.enum';
 
 @Component({
   selector: 'app-main-menu',
@@ -19,5 +20,13 @@ export class MainMenuComponent {
 
   routeToMedicine(): void {
     this.router.navigate(['/health/medicine/list']);
+  }
+
+  routeToOperationType(): void {
+    this.router.navigate([FullPathRoutesEnum.FINANCES_OPERATION_TYPE_LIST]);
+  }
+
+  routeToOperation(): void {
+    this.router.navigate([FullPathRoutesEnum.FINANCES_OPERATION_LIST]);
   }
 }

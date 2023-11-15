@@ -17,6 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('dupa');
     let authReq = req;
     const token: ITokenModel = {
       type: this.auth.getType(),

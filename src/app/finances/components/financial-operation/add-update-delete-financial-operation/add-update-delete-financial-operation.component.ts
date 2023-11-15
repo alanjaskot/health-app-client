@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription, map } from 'rxjs';
-import { FinanceRoutes } from 'src/app/finances/enums/finance-routes.enum';
+import { FullPathRoutesEnum } from 'src/app/core/enums/full-path-routes.enum';
 import { FinancialOperationForm } from 'src/app/finances/forms/financial-operation.form';
 import { IFinancialOperation } from 'src/app/finances/models/financial-operation';
 import { IFinancialOperationType } from 'src/app/finances/models/financial-operation-type';
@@ -61,7 +61,7 @@ export class AddUpdateDeleteFinancialOperationComponent implements OnInit, OnDes
   }
 
   routeTo(): void {
-    this.router.navigate([`/${FinanceRoutes.OPERATION_TYPE_LIST}`]);
+    this.router.navigate([`/${FullPathRoutesEnum.FINANCES_OPERATION_LIST}`]);
   }
 
   private addFinacialOperation(): void {

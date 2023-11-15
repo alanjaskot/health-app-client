@@ -36,12 +36,13 @@ export class AuthUserApiService {
     return this.http.post<boolean>(url, httpOptions);
   }
 
-  register(userName: string, password: string): void {
-    const url = `${envoirment.apiUrl}/auth/registration`;
+  register(userName: string, password: string): Observable<boolean> {
+    const url = `${envoirment.apiUrl}/auth/register`;
     const user: IRegisterModel = {
       userName: userName,
       password: password,
     };
-    this.http.post(url, user, httpOptions);
+    console.log('user name =>', user);
+    return this.http.post<boolean>(url, user, httpOptions);
   }
 }

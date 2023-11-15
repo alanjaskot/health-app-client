@@ -21,6 +21,6 @@ export class RegisterComponent {
       return;
     }
 
-    this.userService.register(this.form.userName.value, this.form.password.value);
+    this.userService.register(this.form.userName.value, this.form.password.value).subscribe((isSuccess: boolean) => {});
   }
 }
